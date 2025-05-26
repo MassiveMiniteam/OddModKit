@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "MMTStyleGuide",
+	"Description": "Style Guide",
+	"Category": "Other",
+	"CreatedBy": "Massive Miniteam",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "MMTStyleGuide",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

@@ -1,0 +1,8 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "PathAddOn_AmountFilterEventDelegate.generated.h"
+
+class UPathAddOn_PassIfCarriedAmountMatches_SimulationComponent;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPathAddOn_AmountFilterEvent, UPathAddOn_PassIfCarriedAmountMatches_SimulationComponent*, Component);
+

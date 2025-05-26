@@ -1,0 +1,6 @@
+#include "AssemblyCondition_NoConnectedTrainSegmentIsOccupied.h"
+
+UAssemblyCondition_NoConnectedTrainSegmentIsOccupied::UAssemblyCondition_NoConnectedTrainSegmentIsOccupied() {
+}
+
+

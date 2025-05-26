@@ -1,0 +1,11 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "ReplaceSelf_QuestGiver_QuestInstance_SimulationPlayer_EventDelegate.generated.h"
+
+class AQuestInstance;
+class ASimulationPlayer;
+class UQuestGiverSimulationComponent;
+class UReplaceSelfOnQuestGiverCompleteComponent;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FReplaceSelf_QuestGiver_QuestInstance_SimulationPlayer_Event, UReplaceSelfOnQuestGiverCompleteComponent*, ReplaceSelfComponent, UQuestGiverSimulationComponent*, QuestGiver, AQuestInstance*, QuestInstance, ASimulationPlayer*, SimulationPlayer);
+

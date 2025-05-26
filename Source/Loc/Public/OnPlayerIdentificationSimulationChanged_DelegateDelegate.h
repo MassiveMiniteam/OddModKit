@@ -1,0 +1,8 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "OnPlayerIdentificationSimulationChanged_DelegateDelegate.generated.h"
+
+class UPlayerIdentificationSimulationComponent;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPlayerIdentificationSimulationChanged_Delegate, UPlayerIdentificationSimulationComponent*, IdentificationSimulation);
+

@@ -1,0 +1,9 @@
+#include "ApplyGameplayEffectOnOverlapCorruptedSimulationComponent.h"
+
+UApplyGameplayEffectOnOverlapCorruptedSimulationComponent::UApplyGameplayEffectOnOverlapCorruptedSimulationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+void UApplyGameplayEffectOnOverlapCorruptedSimulationComponent::OnGridPositionOverlap(UPositionSimulationComponent* ThisComponent, UPositionSimulationComponent* OtherComponent) {
+}
+
+

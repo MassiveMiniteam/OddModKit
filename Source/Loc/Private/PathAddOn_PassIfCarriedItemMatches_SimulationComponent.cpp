@@ -1,0 +1,6 @@
+#include "PathAddOn_PassIfCarriedItemMatches_SimulationComponent.h"
+
+UPathAddOn_PassIfCarriedItemMatches_SimulationComponent::UPathAddOn_PassIfCarriedItemMatches_SimulationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+

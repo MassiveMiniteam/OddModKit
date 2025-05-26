@@ -1,0 +1,30 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "GameplayEffect.h"
+#include "GE_MovementIsBlocked_IfHeadingIntoAnotherNetworkAgent.generated.h"
+
+class UGridNetworkAgentSimulationComponent;
+class USubGridMovementSimulationComponent;
+
+UCLASS(Blueprintable)
+class LOC_API UGE_MovementIsBlocked_IfHeadingIntoAnotherNetworkAgent : public UGameplayEffect {
+    GENERATED_BODY()
+public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USubGridMovementSimulationComponent* SubGridMovement;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UGridNetworkAgentSimulationComponent* GridNetworkAgentComp;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    bool bIsCurrentlyHeadingIntoAnotherNetworkAgent;
+    
+public:
+    UGE_MovementIsBlocked_IfHeadingIntoAnotherNetworkAgent();
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsHeadingIntoAnotherNetworkAgent() const;
+    
+};
+

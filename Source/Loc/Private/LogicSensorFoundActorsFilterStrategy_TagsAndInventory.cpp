@@ -1,0 +1,6 @@
+#include "LogicSensorFoundActorsFilterStrategy_TagsAndInventory.h"
+
+ULogicSensorFoundActorsFilterStrategy_TagsAndInventory::ULogicSensorFoundActorsFilterStrategy_TagsAndInventory() {
+}
+
+

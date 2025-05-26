@@ -1,0 +1,9 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "CharacterCustomizationSettings.h"
+#include "CharacterCustomizationSettingsEventDelegate.generated.h"
+
+class UCharacterCustomizationSimulationComponent;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FCharacterCustomizationSettingsEvent, UCharacterCustomizationSimulationComponent*, Component, FCharacterCustomizationSettings, NewCharacterCustomizationSettings);
+

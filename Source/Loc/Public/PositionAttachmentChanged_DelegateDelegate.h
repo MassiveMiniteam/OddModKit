@@ -1,0 +1,9 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "PositionAttachmentChanged_DelegateDelegate.generated.h"
+
+class UPositionAttachmentSimulationComponent;
+class UPositionSimulationComponent;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FPositionAttachmentChanged_Delegate, UPositionAttachmentSimulationComponent*, AttachmentComponent, UPositionSimulationComponent*, AttachedToPositionComponent);
+

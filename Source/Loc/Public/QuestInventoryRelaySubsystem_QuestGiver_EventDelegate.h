@@ -1,0 +1,9 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "QuestInventoryRelaySubsystem_QuestGiver_EventDelegate.generated.h"
+
+class UQuestGiverSimulationComponent;
+class UQuestInventoryRelaySubsystem;
+
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FQuestInventoryRelaySubsystem_QuestGiver_Event, UQuestInventoryRelaySubsystem*, QuestInventoryRelaySubsystem, UQuestGiverSimulationComponent*, QuestGiver);
+

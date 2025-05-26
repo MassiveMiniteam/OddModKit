@@ -1,0 +1,6 @@
+#include "PathAddon_WaitUntilLogicSignalIsTrue_SimulationComponent.h"
+
+UPathAddon_WaitUntilLogicSignalIsTrue_SimulationComponent::UPathAddon_WaitUntilLogicSignalIsTrue_SimulationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+

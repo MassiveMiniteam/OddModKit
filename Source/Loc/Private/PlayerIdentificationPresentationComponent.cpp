@@ -1,0 +1,16 @@
+#include "PlayerIdentificationPresentationComponent.h"
+
+UPlayerIdentificationPresentationComponent::UPlayerIdentificationPresentationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
+void UPlayerIdentificationPresentationComponent::SetIdentificationSimulation(UPlayerIdentificationSimulationComponent* PlayerIdentification) {
+}
+
+void UPlayerIdentificationPresentationComponent::OnPlayerIdentificationSimulationChanged(UPlayerIdentificationSimulationComponent* IdentificationSimulationComponent) {
+}
+
+void UPlayerIdentificationPresentationComponent::OnPlayerIdentificationReferenceChanged(UPlayerIdentificationSimulationReferenceComponent* Reference, UPlayerIdentificationSimulationComponent* IdentificationSimulation) {
+}
+
+
+
