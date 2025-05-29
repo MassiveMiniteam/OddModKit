@@ -212,7 +212,7 @@ void ULocModBuilderEditorWidget::BuildMod_Internal(const FModKitModDefinition& M
 
 TArray<FString> ULocModBuilderEditorWidget::GetAllowedSteamTags()
 {
-	return {"Workstation", "Logic", "Decoration", "Tool", "Cosmetic", "World Generation"};
+	return {"Workstation", "Logic", "Decoration", "Tool", "Cosmetic", "World Generation", "Localization"};
 }
 
 void ULocModBuilderEditorWidget::UpdateItemTags(const FString& ModId, const TArray<FString>& Tags)
