@@ -30,6 +30,9 @@ public:
     bool IsUnlocked(const UObject* WorldContext);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsEntitled() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetUnlockableTitle() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

@@ -18,10 +18,6 @@ bool UMapIconSimulationComponent::IsObjectCurrentlyPinnedOnMapForPlayer(ASimulat
 void UMapIconSimulationComponent::InteractFromWorldMap(ASimulationPlayer* Player, EMapIconInteractionType InteractionType) {
 }
 
-APinnedObjectMarker* UMapIconSimulationComponent::GetPinnedObjectMarkerForPlayer(ASimulationPlayer* SimulationPlayer) {
-    return NULL;
-}
-
 TSoftObjectPtr<UTexture2D> UMapIconSimulationComponent::GetMapIconTexture() const {
     return NULL;
 }

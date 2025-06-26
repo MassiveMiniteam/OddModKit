@@ -3,6 +3,10 @@
 UGlobalGameSettings::UGlobalGameSettings() {
 }
 
+bool UGlobalGameSettings::SupportsAchievementUnlockFromProfileSaveGame() {
+    return false;
+}
+
 bool UGlobalGameSettings::IsXboxDemoWishlistButtonSupported() {
     return false;
 }

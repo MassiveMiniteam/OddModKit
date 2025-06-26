@@ -123,7 +123,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void CallLeftMouseShiftClick();
+    bool CallLeftMouseShiftClick();
     
 
     // Fix for true pure virtual functions not being implemented

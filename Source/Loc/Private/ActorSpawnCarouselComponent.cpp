@@ -19,4 +19,7 @@ TArray<ASimulationActor*> UActorSpawnCarouselComponent::GetActors() const {
 void UActorSpawnCarouselComponent::DestroyActor(ASimulationActor* Actor) {
 }
 
+void UActorSpawnCarouselComponent::Clear() {
+}
+
 

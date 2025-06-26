@@ -1,16 +1,15 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
+#include "ItemStack.h"
 #include "MinionConfigTagPair.generated.h"
-
-class UItemMinionConfig;
 
 USTRUCT(BlueprintType)
 struct FMinionConfigTagPair {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UItemMinionConfig* MinionConfig;
+    FItemStack MinionItemStack;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer MinionGroupTag;

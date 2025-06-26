@@ -9,7 +9,7 @@ ULocGameUserSettings::ULocGameUserSettings() {
     this->DLSSMode = EDLSSMode::Balanced;
     this->FSRMode = EFSRMode::Balanced;
     this->ScreenPercentage = 58;
-    this->LumenEnabled = ELumen::Off;
+    this->LumenEnabled = ELumen::On;
     this->GammaValue = 2.20f;
 }
 

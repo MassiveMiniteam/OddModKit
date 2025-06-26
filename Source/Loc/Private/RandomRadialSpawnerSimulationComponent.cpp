@@ -15,7 +15,7 @@ void URandomRadialSpawnerSimulationComponent::SpawnObjectsWithProjectilePayload(
 void URandomRadialSpawnerSimulationComponent::SpawnObjects() {
 }
 
-FIntVector URandomRadialSpawnerSimulationComponent::GetSpawnRange() {
+FIntVector URandomRadialSpawnerSimulationComponent::GetSpawnRange() const {
     return FIntVector{};
 }
 

@@ -21,6 +21,8 @@ enum class EBuildCategory : uint8 {
     StoneDecorations,
     QuartzDecorations,
     AncientDecorations,
+    HotDecorations,
+    ColdDecorations,
     DebugAndPrototype,
     Shrines,
     TeleporterShrines,
@@ -30,5 +32,6 @@ enum class EBuildCategory : uint8 {
     LogicOutputs,
     Trains,
     TrainBuildings,
+    GroundLayer,
 };
 

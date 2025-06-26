@@ -13,7 +13,7 @@ void UMinionFormationSimulationComponent::RemoveMinion(ASimulationActor* Minion)
 void UMinionFormationSimulationComponent::OnLeaderPositionChanged() {
 }
 
-FWeakActorArray UMinionFormationSimulationComponent::GetMinionsInFormationOfType(const UItemMinionConfig* Config) const {
+FWeakActorArray UMinionFormationSimulationComponent::GetMinionsInFormationOfType(const FMinionConfigDataMapping& MinionConfigDataMapping) const {
     return FWeakActorArray{};
 }
 

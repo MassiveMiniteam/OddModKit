@@ -19,4 +19,7 @@ void UTabNavigation::NextTab(bool bFocusTab) {
 void UTabNavigation::Init() {
 }
 
+void UTabNavigation::EnableInput(bool bInEnableInput) {
+}
+
 

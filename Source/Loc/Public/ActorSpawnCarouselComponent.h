@@ -40,5 +40,8 @@ public:
     UFUNCTION(BlueprintCallable)
     void DestroyActor(ASimulationActor* Actor);
     
+    UFUNCTION(BlueprintCallable)
+    void Clear();
+    
 };
 

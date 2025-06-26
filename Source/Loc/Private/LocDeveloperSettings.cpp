@@ -20,6 +20,7 @@ ULocDeveloperSettings::ULocDeveloperSettings() {
     this->LootDropWhiteListClasses.AddDefaulted(1);
     this->DefaultInventoryRules.AddDefaulted(1);
     this->CorruptionMarkerMinimumDistance = 500;
+    this->PossibleAspectRatios.AddDefaulted(3);
 }
 
 ULocDeveloperSettings* ULocDeveloperSettings::GetLocDeveloperSettings() {

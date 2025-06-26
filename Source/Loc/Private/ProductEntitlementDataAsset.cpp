@@ -14,6 +14,9 @@ UProductEntitlementDataAsset::UProductEntitlementDataAsset() {
 void UProductEntitlementDataAsset::SetEntitled(bool Value) {
 }
 
+void UProductEntitlementDataAsset::SetEditorEntitled(UObject* WorldContextObject, bool bIsEntitled) {
+}
+
 void UProductEntitlementDataAsset::RefreshEntitlement(UObject* WorldContextObject) {
 }
 

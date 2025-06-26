@@ -5,10 +5,4 @@ UTrainAgentPresentationComponent::UTrainAgentPresentationComponent(const FObject
     this->AudioComponent = NULL;
 }
 
-void UTrainAgentPresentationComponent::OnSimulationMovementStopped(UTrainTracksAgentSimulationComponent* Agent) {
-}
-
-void UTrainAgentPresentationComponent::OnSimulationMovementStarted(UTrainTracksAgentSimulationComponent* Agent) {
-}
-
 

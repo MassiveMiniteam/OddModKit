@@ -5,14 +5,12 @@
 #include "GameplayTagContainer.h"
 #include "Fuel.h"
 #include "ItemStackingConfig.h"
-#include "StaticMeshAndTransforms.h"
 #include "Templates/SubclassOf.h"
 #include "ItemConfig.generated.h"
 
 class AGridObject;
 class ASimulationActor;
 class UGameplayEffect;
-class UItemConfig;
 class UItemStackData;
 class UItemStackingStrategy;
 class UMaterialInterface;
@@ -68,9 +66,6 @@ public:
     int32 StackSize;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UItemStackData> ItemStackDataClass;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CategoryUIOrder;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -111,20 +106,14 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
     AGridObject* SpawnItemGridObject(const UObject* WorldContext, FIntPoint position, int32 Amount, UItemStackData* Data, bool bTryInstantlyMergeIntoAnotherActorAtGridPosition, bool bInstantlySpawnPresentation);
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    bool IsStackable(UItemConfig* LeftConfig, UItemStackData* LeftData, UItemConfig* RightConfig, UItemStackData* RightData);
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
+    TSoftObjectPtr<UStaticMesh> GetStackMeshByStrategy(TSubclassOf<UItemStackingStrategy> StackingStrategy, int32 Amount) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure=false)
-    FStaticMeshAndTransforms GetStackLayoutByStackingStrategy(TSubclassOf<UItemStackingStrategy> StackingStrategy, int32 Amount) const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure=false)
-    FStaticMeshAndTransforms GetStackLayout(int32 Amount) const;
+    TSoftObjectPtr<UStaticMesh> GetStackLayout(int32 Amount) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetRichTextId() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, meta=(WorldContext="WorldContext"))
-    UItemStackData* CreateItemStackData(const UObject* WorldContext);
     
 };
 

@@ -11,6 +11,9 @@ public:
     UGlobalGameSettings();
 
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool SupportsAchievementUnlockFromProfileSaveGame();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsXboxDemoWishlistButtonSupported();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

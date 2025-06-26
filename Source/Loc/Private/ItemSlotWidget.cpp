@@ -60,7 +60,8 @@ bool UItemSlotWidget::IsEmpty() const {
 void UItemSlotWidget::DropItemStack() {
 }
 
-void UItemSlotWidget::CallLeftMouseShiftClick() {
+bool UItemSlotWidget::CallLeftMouseShiftClick() {
+    return false;
 }
 
 

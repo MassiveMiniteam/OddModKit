@@ -6,7 +6,6 @@
 #include "TrainAgentPresentationComponent.generated.h"
 
 class UAudioComponent;
-class UPositionSimulationComponent;
 class USceneComponent;
 class UTrainTracksAgentSimulationComponent;
 
@@ -30,9 +29,6 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Export, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UTrainTracksAgentSimulationComponent> TrainAgentSimulation;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Export, meta=(AllowPrivateAccess=true))
-    TWeakObjectPtr<UPositionSimulationComponent> PositionSimulation;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UAudioComponent* AudioComponent;
     
@@ -45,12 +41,5 @@ private:
 public:
     UTrainAgentPresentationComponent(const FObjectInitializer& ObjectInitializer);
 
-private:
-    UFUNCTION(BlueprintCallable)
-    void OnSimulationMovementStopped(UTrainTracksAgentSimulationComponent* Agent);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnSimulationMovementStarted(UTrainTracksAgentSimulationComponent* Agent);
-    
 };
 

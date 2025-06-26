@@ -60,11 +60,6 @@ public:
     UFUNCTION(BlueprintCallable)
     void InteractFromWorldMap(ASimulationPlayer* Player, EMapIconInteractionType InteractionType);
     
-protected:
-    UFUNCTION(BlueprintCallable)
-    APinnedObjectMarker* GetPinnedObjectMarkerForPlayer(ASimulationPlayer* SimulationPlayer);
-    
-public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TSoftObjectPtr<UTexture2D> GetMapIconTexture() const;
     

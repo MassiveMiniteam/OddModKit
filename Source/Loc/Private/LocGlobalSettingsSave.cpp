@@ -37,7 +37,9 @@ ULocGlobalSettingsSave::ULocGlobalSettingsSave() {
     this->bXboxButtonLayout = true;
     this->bEnableMisophonia = false;
     this->bEnableMisophoniaElectric = false;
+    this->bEnableTickingActorSounds = true;
     this->bIsInitialSetupDone = false;
+    this->AspectRationIndex = 0;
 }
 
 void ULocGlobalSettingsSave::SetVolume(EAudioVolumeType AudioVolumeType, float Value) {

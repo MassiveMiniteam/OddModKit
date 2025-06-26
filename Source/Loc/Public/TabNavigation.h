@@ -47,9 +47,12 @@ protected:
     UFUNCTION(BlueprintCallable)
     void Init();
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void EnableInput(bool bInEnableInput);
+    
 
     // Fix for true pure virtual functions not being implemented
-public:
     UFUNCTION()
     void OnProcessInput(UNavFocusPath* Path, int32 PathIndex, UInputActionData* InputData) override PURE_VIRTUAL(OnProcessInput,);
     

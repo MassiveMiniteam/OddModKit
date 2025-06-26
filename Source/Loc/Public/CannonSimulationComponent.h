@@ -8,13 +8,13 @@
 #include "CannonComponent_Projectile_EventDelegate.h"
 #include "CannonPropertiesUpdated_EventDelegate.h"
 #include "CannonPropertiesUpdated_Rotation_Distance_EventDelegate.h"
+#include "ItemStack.h"
 #include "SimulationTimerComponent.h"
 #include "CannonSimulationComponent.generated.h"
 
 class AGrid;
 class UGridTileLandscapeLayer;
 class UInventoryComponent;
-class UItemConfig;
 class ULogicInputSimulationComponent;
 class UPositionSimulationComponent;
 
@@ -98,7 +98,7 @@ public:
     bool IsUseable() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool CanShootItemConfig(UItemConfig* ItemConfig);
+    bool CanShootItem(const FItemStack& Item);
     
 protected:
     UFUNCTION(BlueprintCallable)

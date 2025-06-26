@@ -13,6 +13,7 @@ class UItemConfig;
 class ULootDropSimulationComponent;
 class ULootDropTrackerSimulationComponent;
 class UObject;
+class UProductEntitlementDataAsset;
 class URecentlyUnlockedAssetsTracker;
 class URecentlyUnlockedAssetsTrackerSimulationComponent;
 class UUnlockHandlingSimulationComponent;
@@ -47,6 +48,10 @@ protected:
 public:
     URecentlyUnlockedAssetsTracker(const FObjectInitializer& ObjectInitializer);
 
+protected:
+    UFUNCTION(BlueprintCallable)
+    void RefreshEntitlementRecentlyUnlocked();
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnRecentlyUnlockedItemsListChanged_Event(URecentlyUnlockedAssetsTrackerSimulationComponent* Component);
@@ -67,6 +72,9 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnItemPickedUp(UGlobalItemPickupTracker* ItemPickupTracker, UItemConfig* RecentlyPickedUpItem, int32 TotalAmount);
     
+    UFUNCTION(BlueprintCallable)
+    void OnEntitlementChanged(UProductEntitlementDataAsset* ProductEntitlementDataAsset);
+    
 public:
     UFUNCTION(BlueprintCallable)
     void MarkObjectAsSeen(UObject* SeenObject);
@@ -80,7 +88,7 @@ public:
     bool HasRecentlyUnlockedDataAssetOfType(TArray<TSubclassOf<UDataAsset>> DataAssetTypes);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContext"))
-    static URecentlyUnlockedAssetsTracker* GetRecentlyUnlockedAssetTracker(UObject* WorldContext);
+    static URecentlyUnlockedAssetsTracker* GetRecentlyUnlockedAssetTracker(const UObject* WorldContext);
     
     UFUNCTION(BlueprintCallable)
     void AddDataAsset(UDataAsset* InDataAsset);

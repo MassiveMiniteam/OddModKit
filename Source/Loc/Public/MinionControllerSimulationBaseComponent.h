@@ -23,8 +23,6 @@ class UBTStateMachineComponent;
 class UControllableMinionSimulationComponent;
 class UEventDataAssetWithState;
 class UInventoryComponent;
-class UItemConfig;
-class UItemMinionConfig;
 class UPositionSimulationComponent;
 class UStatsComponent;
 
@@ -130,7 +128,7 @@ public:
     void ThrowMinion(ASimulationActor* Minion, FProjectileParameters ThrowProperties);
     
     UFUNCTION(BlueprintCallable)
-    void SpawnUnitsByClass(UItemMinionConfig* Config, int32 AmountToBeSpawned, ASimulationManager* SimulationManager);
+    void SpawnUnitsByItemStack(const FItemStack& Stack, ASimulationManager* SimulationManager);
     
     UFUNCTION(BlueprintCallable)
     void SpawnUnits(const FMinionControlGroup& ControlGroup, int32 AmountToBeSpawned, ASimulationManager* SimulationManager);
@@ -189,16 +187,13 @@ public:
     int32 GetNumSlots() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UItemMinionConfig* GetMinionConfig(int32 MinionSlotIndex) const;
+    FItemStack GetMinionConfig(int32 MinionSlotIndex) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UInventoryComponent* GetLoadOutSwapToInventory() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<ASimulationActor*> GetDeployedMinionsForTagPair(FMinionConfigTagPair ConfigTagPair);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure=false)
-    int32 GetDeployedMinionCountInTaggedGroups(UItemConfig* Config) const;
+    TArray<ASimulationActor*> GetDeployedMinionsForTagPair(const FMinionConfigTagPair& ConfigTagPair);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetDeployedMinionCount(int32 MinionSlotIndex) const;
@@ -211,9 +206,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure=false)
     TArray<ASimulationActor*> GetAllDeployedMinionsWithStat(FGameplayTag StatTag) const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure=false)
-    TArray<ASimulationActor*> GetAllDeployedMinionsWithoutGroupTag() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure=false)
     TArray<ASimulationActor*> GetAllDeployedMinions() const;

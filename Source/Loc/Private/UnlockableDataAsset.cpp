@@ -12,6 +12,10 @@ bool UUnlockableDataAsset::IsUnlocked(const UObject* WorldContext) {
     return false;
 }
 
+bool UUnlockableDataAsset::IsEntitled() const {
+    return false;
+}
+
 FText UUnlockableDataAsset::GetUnlockableTitle() const {
     return FText::GetEmpty();
 }

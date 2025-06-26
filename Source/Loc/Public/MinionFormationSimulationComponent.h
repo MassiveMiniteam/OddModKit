@@ -1,11 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SimulationActorComponent.h"
+#include "MinionConfigDataMapping.h"
 #include "WeakActorArray.h"
 #include "MinionFormationSimulationComponent.generated.h"
 
 class ASimulationActor;
-class UItemMinionConfig;
 class UMovementTrackerSimulationComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -14,7 +14,7 @@ class LOC_API UMinionFormationSimulationComponent : public USimulationActorCompo
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
-    TMap<UItemMinionConfig*, FWeakActorArray> FollowingMinions;
+    TMap<FMinionConfigDataMapping, FWeakActorArray> FollowingMinions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 DistanceToLeader;
@@ -37,7 +37,7 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FWeakActorArray GetMinionsInFormationOfType(const UItemMinionConfig* Config) const;
+    FWeakActorArray GetMinionsInFormationOfType(const FMinionConfigDataMapping& MinionConfigDataMapping) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetMinionIsFollowing(const ASimulationActor* Minion) const;

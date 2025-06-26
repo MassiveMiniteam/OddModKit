@@ -47,10 +47,9 @@ class UDataTable;
 class UGameplayAbility;
 class UGlossaryCategoryData;
 class UGlossaryGameplayData;
+class UGroundMeshMappingAsset;
 class UInputActionData;
-class UInventoryComponent;
 class UItemConfig;
-class UItemStackData;
 class ULocGameViewportClient;
 class ULootDropTrackerSimulationComponent;
 class UObject;
@@ -192,9 +191,6 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool LocalTimeIsInFrameToHitSpecificTiming(FFixed LocalTime, FFixed DeltaTimeThisFrame, FFixed SpecificTiming);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContext"))
-    static bool LocalPlayerCanCurrentlyAffordConstructionCost(const UObject* WorldContext, const TArray<FItemStack>& ConstructionCost);
-    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
     static void LoadGameplayMap(UObject* WorldContext);
     
@@ -206,12 +202,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsSimulationActorFullyCorrupted(ASimulationActor* SimulationActor);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    static bool IsSimilarConfig(const FItemStack& Item, UItemConfig* ItemConfig, UItemStackData* Data);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    static bool IsSimilar(const FItemStack& ItemA, const FItemStack& ItemB);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsPointInsideBox(const FBox2D& Box, const FVector2D& Point);
@@ -281,9 +271,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContext"))
     static UUnlockableTier* GetTierForUnlockable(UObject* WorldContext, UUnlockableDataAsset* Unlockable);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    static int32 GetStackSize(const FItemStack& Item);
     
     UFUNCTION(BlueprintCallable)
     static TArray<TSoftClassPtr<UObject>> GetSoftReferencesToAllSubclassesOf(UClass* ParentClass, const FString& Path, bool ResultIncludesBaseClass);
@@ -360,9 +347,6 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContext"))
     static ALocPlayerController* GetLocalLocPlayerController(const UObject* WorldContext);
     
-    UFUNCTION(BlueprintCallable)
-    static int32 GetItemStackHashCode(FItemStack& Stack);
-    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FIntPoint GetGridPositionIntVector(FIntVector position);
     
@@ -386,6 +370,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
     static UGlossaryCategoryData* GetGlossaryDataAssetBySimulationActor(const UObject* WorldContext, TSubclassOf<ASimulationActor> GlossaryActor);
+    
+    UFUNCTION(BlueprintCallable)
+    static TArray<FGameplayTag> GetGameplayTagArrayFromContainer(FGameplayTagContainer GameplayTagContainer);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FIntVector GetForwardFromAngle(int32 Angle, int32 Scale);
@@ -439,10 +426,10 @@ public:
     static TArray<UItemConfig*> GetAllItemsByTag(const UObject* WorldContext, FGameplayTagContainer PassFilterIfAllTagsMatch, FGameplayTagContainer BlocksFilterIfAnyTagMatch);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
-    static TArray<UInventoryComponent*> GetAllInventoriesUsableToLocalPlayerForConstruction(const UObject* WorldContext);
+    static TArray<UInputActionData*> GetAllInputActions(const UObject* WorldContext);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
-    static TArray<UInputActionData*> GetAllInputActions(const UObject* WorldContext);
+    static TArray<UGroundMeshMappingAsset*> GetAllGroundMeshMappingAssets(UObject* WorldContext);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
     static TArray<UGlossaryGameplayData*> GetAllGlossaryGameplayData(UObject* WorldContext);

@@ -8,6 +8,7 @@ public class Loc : ModuleRules {
         
         PublicDependencyModuleNames.AddRange(new string[] {
             "AIModule",
+            "AudioMixer",
             "Core",
             "CoreUObject",
             "DeveloperSettings",

@@ -26,4 +26,8 @@ void ULocGameInstance::LocApplyLunaGraphicSettings() {
 void ULocGameInstance::LocApplyGraphicSettings(int32 Value) {
 }
 
+TArray<UProductEntitlementDataAsset*> ULocGameInstance::GetAndCacheAllEntitlementAssets() {
+    return TArray<UProductEntitlementDataAsset*>();
+}
+
 

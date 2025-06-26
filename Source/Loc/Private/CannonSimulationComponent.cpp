@@ -16,7 +16,7 @@ bool UCannonSimulationComponent::IsUseable() const {
     return false;
 }
 
-bool UCannonSimulationComponent::CanShootItemConfig(UItemConfig* ItemConfig) {
+bool UCannonSimulationComponent::CanShootItem(const FItemStack& Item) {
     return false;
 }
 

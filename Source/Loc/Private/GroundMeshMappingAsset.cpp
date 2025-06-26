@@ -5,6 +5,7 @@ UGroundMeshMappingAsset::UGroundMeshMappingAsset() {
     this->bRandomRotation = false;
     this->bUseStableInstanceMesh = true;
     this->bReceiveDecals = false;
+    this->bRemoveIfGridObjectIsPlacedOnTop = true;
 }
 
 

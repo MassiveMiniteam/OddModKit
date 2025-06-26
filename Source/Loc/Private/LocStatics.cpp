@@ -152,10 +152,6 @@ bool ULocStatics::LocalTimeIsInFrameToHitSpecificTiming(FFixed LocalTime, FFixed
     return false;
 }
 
-bool ULocStatics::LocalPlayerCanCurrentlyAffordConstructionCost(const UObject* WorldContext, const TArray<FItemStack>& ConstructionCost) {
-    return false;
-}
-
 void ULocStatics::LoadGameplayMap(UObject* WorldContext) {
 }
 
@@ -168,14 +164,6 @@ bool ULocStatics::IsWorldElevationSetToFlat(const UObject* WorldContextObject) {
 }
 
 bool ULocStatics::IsSimulationActorFullyCorrupted(ASimulationActor* SimulationActor) {
-    return false;
-}
-
-bool ULocStatics::IsSimilarConfig(const FItemStack& Item, UItemConfig* ItemConfig, UItemStackData* Data) {
-    return false;
-}
-
-bool ULocStatics::IsSimilar(const FItemStack& ItemA, const FItemStack& ItemB) {
     return false;
 }
 
@@ -266,10 +254,6 @@ TArray<UItemConfig*> ULocStatics::GetUnlockedGlossaryItemsByTag(FGameplayTagCont
 
 UUnlockableTier* ULocStatics::GetTierForUnlockable(UObject* WorldContext, UUnlockableDataAsset* Unlockable) {
     return NULL;
-}
-
-int32 ULocStatics::GetStackSize(const FItemStack& Item) {
-    return 0;
 }
 
 TArray<TSoftClassPtr<UObject>> ULocStatics::GetSoftReferencesToAllSubclassesOf(UClass* ParentClass, const FString& Path, bool ResultIncludesBaseClass) {
@@ -372,10 +356,6 @@ ALocPlayerController* ULocStatics::GetLocalLocPlayerController(const UObject* Wo
     return NULL;
 }
 
-int32 ULocStatics::GetItemStackHashCode(FItemStack& Stack) {
-    return 0;
-}
-
 FIntPoint ULocStatics::GetGridPositionIntVector(FIntVector position) {
     return FIntPoint{};
 }
@@ -406,6 +386,10 @@ TArray<FIntPoint> ULocStatics::GetGridCoordinatesInCrossShape(UObject* WorldCont
 
 UGlossaryCategoryData* ULocStatics::GetGlossaryDataAssetBySimulationActor(const UObject* WorldContext, TSubclassOf<ASimulationActor> GlossaryActor) {
     return NULL;
+}
+
+TArray<FGameplayTag> ULocStatics::GetGameplayTagArrayFromContainer(FGameplayTagContainer GameplayTagContainer) {
+    return TArray<FGameplayTag>();
 }
 
 FIntVector ULocStatics::GetForwardFromAngle(int32 Angle, int32 Scale) {
@@ -476,12 +460,12 @@ TArray<UItemConfig*> ULocStatics::GetAllItemsByTag(const UObject* WorldContext, 
     return TArray<UItemConfig*>();
 }
 
-TArray<UInventoryComponent*> ULocStatics::GetAllInventoriesUsableToLocalPlayerForConstruction(const UObject* WorldContext) {
-    return TArray<UInventoryComponent*>();
-}
-
 TArray<UInputActionData*> ULocStatics::GetAllInputActions(const UObject* WorldContext) {
     return TArray<UInputActionData*>();
+}
+
+TArray<UGroundMeshMappingAsset*> ULocStatics::GetAllGroundMeshMappingAssets(UObject* WorldContext) {
+    return TArray<UGroundMeshMappingAsset*>();
 }
 
 TArray<UGlossaryGameplayData*> ULocStatics::GetAllGlossaryGameplayData(UObject* WorldContext) {

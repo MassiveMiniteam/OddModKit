@@ -2,11 +2,11 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "SimulationCommand.h"
+#include "ItemStack.h"
 #include "RemoveMinionFromWorkstationAndTryAssignToPlayer.generated.h"
 
 class ASimulationPlayer;
 class UInventoryComponent;
-class UItemMinionConfig;
 
 UCLASS(Blueprintable)
 class LOC_API URemoveMinionFromWorkstationAndTryAssignToPlayer : public USimulationCommand {
@@ -22,7 +22,7 @@ public:
     int32 InventorySlot;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
-    UItemMinionConfig* MinionItemConfig;
+    FItemStack CallbackItemStack;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     FGameplayTag StateGroupAfterSpawn;

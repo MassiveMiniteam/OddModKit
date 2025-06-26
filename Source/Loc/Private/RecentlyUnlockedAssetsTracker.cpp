@@ -8,6 +8,9 @@ URecentlyUnlockedAssetsTracker::URecentlyUnlockedAssetsTracker(const FObjectInit
     this->RecentlyUnlockedAssetTrackerSimulation = NULL;
 }
 
+void URecentlyUnlockedAssetsTracker::RefreshEntitlementRecentlyUnlocked() {
+}
+
 void URecentlyUnlockedAssetsTracker::OnRecentlyUnlockedItemsListChanged_Event(URecentlyUnlockedAssetsTrackerSimulationComponent* Component) {
 }
 
@@ -26,6 +29,9 @@ void URecentlyUnlockedAssetsTracker::OnItemUnlocked(UUnlockableDataAsset* Unlock
 void URecentlyUnlockedAssetsTracker::OnItemPickedUp(UGlobalItemPickupTracker* ItemPickupTracker, UItemConfig* RecentlyPickedUpItem, int32 TotalAmount) {
 }
 
+void URecentlyUnlockedAssetsTracker::OnEntitlementChanged(UProductEntitlementDataAsset* ProductEntitlementDataAsset) {
+}
+
 void URecentlyUnlockedAssetsTracker::MarkObjectAsSeen(UObject* SeenObject) {
 }
 
@@ -37,7 +43,7 @@ bool URecentlyUnlockedAssetsTracker::HasRecentlyUnlockedDataAssetOfType(TArray<T
     return false;
 }
 
-URecentlyUnlockedAssetsTracker* URecentlyUnlockedAssetsTracker::GetRecentlyUnlockedAssetTracker(UObject* WorldContext) {
+URecentlyUnlockedAssetsTracker* URecentlyUnlockedAssetsTracker::GetRecentlyUnlockedAssetTracker(const UObject* WorldContext) {
     return NULL;
 }
 

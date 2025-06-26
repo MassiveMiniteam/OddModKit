@@ -3,5 +3,6 @@
 FInventorySlotMeta::FInventorySlotMeta() {
     this->SlotIndex = 0;
     this->LastItemConfig = NULL;
+    this->LastItemStackData = NULL;
 }
 

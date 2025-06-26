@@ -15,6 +15,7 @@ class UConstructableConfig;
 class UGlobalClassMappings;
 class UGlossaryCategoryData;
 class UGlossaryGameplayData;
+class UGroundMeshMappingAsset;
 class UInputActionCategoryData;
 class UItemConfig;
 class UObject;
@@ -84,6 +85,9 @@ public:
     TArray<UUnlockableDataAsset*> AllUnlockables;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<UUnlockConditionWrapper*> AllUnlockConditionWrappers;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UUnlockableTier*> TierUnlockables;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -121,6 +125,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UBiomeCellConfig*> AllBiomeCellConfigs;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<UGroundMeshMappingAsset*> AllGroundMeshMappingAssets;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSubclassOf<ASimulationActor>> AIPerceptionIgnoreDefaultClasses;

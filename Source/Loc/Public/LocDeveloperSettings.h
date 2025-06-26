@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Engine/DeveloperSettings.h"
 #include "Engine/EngineTypes.h"
 #include "GameplayTagContainer.h"
@@ -138,6 +139,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CorruptionMarkerMinimumDistance;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FVector2D> PossibleAspectRatios;
     
     ULocDeveloperSettings();
 

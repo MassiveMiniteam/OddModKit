@@ -61,7 +61,7 @@ public:
     void SpawnObjects();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FIntVector GetSpawnRange();
+    FIntVector GetSpawnRange() const;
     
 };
 

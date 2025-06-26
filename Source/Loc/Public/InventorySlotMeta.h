@@ -3,6 +3,7 @@
 #include "InventorySlotMeta.generated.h"
 
 class UItemConfig;
+class UItemStackData;
 
 USTRUCT(BlueprintType)
 struct FInventorySlotMeta {
@@ -13,6 +14,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     UItemConfig* LastItemConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    UItemStackData* LastItemStackData;
     
     LOC_API FInventorySlotMeta();
 };

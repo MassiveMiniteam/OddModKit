@@ -6,6 +6,10 @@ URecentlyUnlockedAssetsTrackerSimulationComponent::URecentlyUnlockedAssetsTracke
 void URecentlyUnlockedAssetsTrackerSimulationComponent::RemoveRecentlyUnlockedDataAssets(TArray<UDataAsset*> DataAssets) {
 }
 
+bool URecentlyUnlockedAssetsTrackerSimulationComponent::HasBeenSeen(UDataAsset* Asset) {
+    return false;
+}
+
 TArray<UDataAsset*> URecentlyUnlockedAssetsTrackerSimulationComponent::GetSeenDataAssets() const {
     return TArray<UDataAsset*>();
 }

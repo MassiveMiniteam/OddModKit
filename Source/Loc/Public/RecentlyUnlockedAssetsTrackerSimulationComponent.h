@@ -33,6 +33,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void RemoveRecentlyUnlockedDataAssets(TArray<UDataAsset*> DataAssets);
     
+    UFUNCTION(BlueprintCallable)
+    bool HasBeenSeen(UDataAsset* Asset);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<UDataAsset*> GetSeenDataAssets() const;
     

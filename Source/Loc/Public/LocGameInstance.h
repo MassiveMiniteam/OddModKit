@@ -46,5 +46,8 @@ public:
     UFUNCTION(BlueprintCallable, Exec)
     void LocApplyGraphicSettings(int32 Value);
     
+    UFUNCTION(BlueprintCallable)
+    TArray<UProductEntitlementDataAsset*> GetAndCacheAllEntitlementAssets();
+    
 };
 

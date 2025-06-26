@@ -4,6 +4,7 @@
 #include "ItemStack.h"
 #include "ItemStackWithCostTableRow.generated.h"
 
+class UProductEntitlementDataAsset;
 class UUnlockableDataAsset;
 
 USTRUCT(BlueprintType)
@@ -18,6 +19,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UUnlockableDataAsset*> Prerequisites;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UProductEntitlementDataAsset* Entitlement;
     
     FItemStackWithCostTableRow();
 };

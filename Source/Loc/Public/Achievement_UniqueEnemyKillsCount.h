@@ -18,7 +18,7 @@ protected:
     TArray<TSubclassOf<ASimulationActor>> SimulationActorsToCheck;
     
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     TArray<TSubclassOf<ASimulationActor>> UniqueSimulationActors;
     
 public:

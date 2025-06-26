@@ -19,24 +19,16 @@ AGridObject* UItemConfig::SpawnItemGridObject(const UObject* WorldContext, FIntP
     return NULL;
 }
 
-bool UItemConfig::IsStackable_Implementation(UItemConfig* LeftConfig, UItemStackData* LeftData, UItemConfig* RightConfig, UItemStackData* RightData) {
-    return false;
+TSoftObjectPtr<UStaticMesh> UItemConfig::GetStackMeshByStrategy(TSubclassOf<UItemStackingStrategy> StackingStrategy, int32 Amount) const {
+    return NULL;
 }
 
-FStaticMeshAndTransforms UItemConfig::GetStackLayoutByStackingStrategy(TSubclassOf<UItemStackingStrategy> StackingStrategy, int32 Amount) const {
-    return FStaticMeshAndTransforms{};
-}
-
-FStaticMeshAndTransforms UItemConfig::GetStackLayout(int32 Amount) const {
-    return FStaticMeshAndTransforms{};
+TSoftObjectPtr<UStaticMesh> UItemConfig::GetStackLayout(int32 Amount) const {
+    return NULL;
 }
 
 FString UItemConfig::GetRichTextId() const {
     return TEXT("");
-}
-
-UItemStackData* UItemConfig::CreateItemStackData_Implementation(const UObject* WorldContext) {
-    return NULL;
 }
 
 

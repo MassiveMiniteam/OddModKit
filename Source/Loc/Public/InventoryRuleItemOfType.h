@@ -14,6 +14,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSubclassOf<UItemConfig>> ItemConfigTypes;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAdditionalDataMustBeEmpty;
+    
 public:
     UInventoryRuleItemOfType();
 

@@ -11,7 +11,6 @@
 #include "SlotChangedEventDelegate.h"
 #include "InventoryComponent.generated.h"
 
-class ASimulationPlayer;
 class UInventoryComponent;
 class UInventoryRule;
 class UItemConfig;
@@ -85,9 +84,6 @@ public:
     bool TryToConsumeItemAt(const FItemStack& Item, int32 SlotIndex, UObject* Origin);
     
     UFUNCTION(BlueprintCallable)
-    static bool TryConsumeItemsInMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& ItemsToConsume);
-    
-    UFUNCTION(BlueprintCallable)
     int32 TransferStackAtSlotToSlot(int32 FromSlot, UInventoryComponent* TargetInventory, int32 TargetSlot, int32 TargetAmount, bool bAllowSwapping, bool bAllowTransferOverflow);
     
     UFUNCTION(BlueprintCallable)
@@ -104,12 +100,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetItem(int32 Index, FItemStack Item);
-    
-    UFUNCTION(BlueprintCallable)
-    int32 RemoveItemConfigAmountAt(UItemConfig* Config, int32 Amount, int32 Slot, UObject* Origin);
-    
-    UFUNCTION(BlueprintCallable)
-    int32 RemoveItemConfigAmount(UItemConfig* Config, int32 Amount, UObject* Origin);
     
     UFUNCTION(BlueprintCallable)
     int32 RemoveItem(const FItemStack& Stack, UObject* Origin);
@@ -133,9 +123,6 @@ public:
     bool IsEmpty() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static int32 HowManyTimesCanTheRequestedItemsBeConsumedDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasAnyItemConfigAsOtherInventory(const UInventoryComponent* OtherInventory);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -154,13 +141,16 @@ public:
     TArray<UItemConfig*> GetUniqueConfigs() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<FItemStack> GetUniqueConfigAndData() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
     TArray<FItemStack> GetTotalItemCount() const;
     
     UFUNCTION(BlueprintCallable)
     int32 GetStackSizeForSlot(int32 SlotIndex, UItemConfig* OverrideItemConfig);
     
-    UFUNCTION(BlueprintCallable)
-    int32 GetSlotIndexOfFirstItem(const FItemStack& Stack);
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetSlotIndexOfFirstItem(const FItemStack& Stack) const;
     
     UFUNCTION(BlueprintCallable)
     UInventoryComponent* GetPredictedOrRealInventory();
@@ -178,10 +168,13 @@ public:
     int32 GetItemCountOfConfig(UItemConfig* Config) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetItemCountForConfigAndData(UItemConfig* Config, UItemStackData* Data) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetItemCount() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FItemStack GetItem(int32 Index);
+    FItemStack GetItem(int32 Index) const;
     
     UFUNCTION(BlueprintCallable)
     FItemStack GetFirstItemOfType(int32 Amount, UItemConfig* Type, bool bRemoveItem);
@@ -189,8 +182,8 @@ public:
     UFUNCTION(BlueprintCallable)
     FItemStack GetFirstItem(int32 Amount, bool bRemoveItem);
     
-    UFUNCTION(BlueprintCallable)
-    int32 GetFirstEmptySlot();
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetFirstEmptySlot() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FFixed GetFillState01();
@@ -199,16 +192,7 @@ public:
     int32 GetFilledSlotsCount();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static int32 GetAmountOfItemsForMultipleInventories(const TArray<UInventoryComponent*>& Inventories, UItemConfig* Item);
-    
-    UFUNCTION(BlueprintCallable)
-    static TArray<UInventoryComponent*> GetAllUsableInventoriesIncludingSpecificPlayer(ASimulationPlayer* Player);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FItemStack> GetAllPossibleItems(const TArray<FItemStack>& ItemStacks);
-    
-    UFUNCTION(BlueprintCallable)
-    static TArray<FItemStack> GetAllItemsOfMultipleInventories(const TArray<UInventoryComponent*>& Inventories);
     
     UFUNCTION(BlueprintCallable)
     void DropSlot(FIntPoint GridPosition, int32 InSlotIndex);
@@ -216,11 +200,8 @@ public:
     UFUNCTION(BlueprintCallable)
     void DropAll(FIntPoint GridPosition);
     
-    UFUNCTION(BlueprintCallable)
-    bool ContainsItemConfigAmount(UItemConfig* Config, int32 Amount);
-    
-    UFUNCTION(BlueprintCallable)
-    bool ContainsItem(const FItemStack& Stack);
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool ContainsItem(const FItemStack& Stack) const;
     
     UFUNCTION(BlueprintCallable)
     void ConsumeAndReturnRest(TArray<FItemStack>& RemainingItems, UObject* Origin);
@@ -231,42 +212,29 @@ public:
     UFUNCTION(BlueprintCallable)
     bool CanTransferItemsTo(UInventoryComponent* TargetInventory, int32 FromSlot, int32 TargetSlot);
     
-protected:
-    UFUNCTION(BlueprintCallable)
-    bool CanRemoveItemAt(UItemConfig* Config, int32 Amount, int32 Index, UItemStackData* Data);
-    
-public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    static bool CanConsumeItemsDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems);
-    
     UFUNCTION(BlueprintCallable)
     bool CanConsumeItems(const TArray<FItemStack>& ItemsToConsume);
     
     UFUNCTION(BlueprintCallable)
-    bool CanAddItems(const TArray<FItemStack>& ItemsToAdd);
+    bool CanAddItems(const TArray<FItemStack>& Stacks);
     
-protected:
     UFUNCTION(BlueprintCallable)
-    bool CanAddItemAt(UItemConfig* Config, int32 Amount, int32 Index, UItemStackData* Data);
-    
-public:
-    UFUNCTION(BlueprintCallable)
-    bool CanAddItem(const FItemStack& ItemsToAdd);
+    bool CanAddItem(const FItemStack& Stack);
     
     UFUNCTION(BlueprintCallable)
     void AutoSort();
     
     UFUNCTION(BlueprintCallable)
-    int32 AddItemToSlot(UItemConfig* Config, int32 Amount, UItemStackData* Data, int32 Slot, UObject* Origin);
+    int32 AddItemToSlot(const FItemStack& Stack, int32 Slot, bool bCommit, UObject* Origin);
     
     UFUNCTION(BlueprintCallable)
-    int32 AddItems(const TArray<FItemStack>& ItemsToAdd, bool bCommit, UObject* Origin);
+    int32 AddItemStack(FItemStack StackToAdd, bool bCommit, UObject* Origin, bool bAllowOverFlow);
+    
+    UFUNCTION(BlueprintCallable)
+    int32 AddItems(const TArray<FItemStack>& ItemsToAdd, bool bCommit, UObject* Origin, bool bAllowOverFlow);
     
     UFUNCTION(BlueprintCallable)
     int32 AddItemConfigAmountAt(UItemConfig* Config, int32 Amount, int32 Slot, UItemStackData* Data, bool bCommit, UObject* Origin);
-    
-    UFUNCTION(BlueprintCallable)
-    int32 AddItemConfigAmount(UItemConfig* Config, int32 Amount, UItemStackData* Data, bool bCommit, UObject* Origin, bool bAllowOverflow);
     
     UFUNCTION(BlueprintCallable)
     int32 AddItem(const FItemStack& Stack, UObject* Origin);

@@ -154,7 +154,13 @@ public:
     bool bEnableMisophoniaElectric;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    bool bEnableTickingActorSounds;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     bool bIsInitialSetupDone;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    int32 AspectRationIndex;
     
     ULocGlobalSettingsSave();
 

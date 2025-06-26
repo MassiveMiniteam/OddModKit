@@ -76,6 +76,9 @@ public:
     void SetEntitled(bool Value);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    void SetEditorEntitled(UObject* WorldContextObject, bool bIsEntitled);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     void RefreshEntitlement(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

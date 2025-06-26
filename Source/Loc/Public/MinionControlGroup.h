@@ -1,17 +1,17 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
+#include "ItemStack.h"
 #include "MinionControlGroup.generated.h"
 
 class ASimulationActor;
-class UItemMinionConfig;
 
 USTRUCT(BlueprintType)
 struct FMinionControlGroup {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
-    UItemMinionConfig* MinionConfig;
+    FItemStack MinionItemStack;
     
     UPROPERTY(EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<ASimulationActor>> DeployedMinions;

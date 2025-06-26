@@ -23,7 +23,7 @@ void UMinionControllerSimulationBaseComponent::TriggerLoadOutSwap() {
 void UMinionControllerSimulationBaseComponent::ThrowMinion(ASimulationActor* Minion, FProjectileParameters ThrowProperties) {
 }
 
-void UMinionControllerSimulationBaseComponent::SpawnUnitsByClass(UItemMinionConfig* Config, int32 AmountToBeSpawned, ASimulationManager* SimulationManager) {
+void UMinionControllerSimulationBaseComponent::SpawnUnitsByItemStack(const FItemStack& Stack, ASimulationManager* SimulationManager) {
 }
 
 void UMinionControllerSimulationBaseComponent::SpawnUnits(const FMinionControlGroup& ControlGroup, int32 AmountToBeSpawned, ASimulationManager* SimulationManager) {
@@ -77,20 +77,16 @@ int32 UMinionControllerSimulationBaseComponent::GetNumSlots() const {
     return 0;
 }
 
-UItemMinionConfig* UMinionControllerSimulationBaseComponent::GetMinionConfig(int32 MinionSlotIndex) const {
-    return NULL;
+FItemStack UMinionControllerSimulationBaseComponent::GetMinionConfig(int32 MinionSlotIndex) const {
+    return FItemStack{};
 }
 
 UInventoryComponent* UMinionControllerSimulationBaseComponent::GetLoadOutSwapToInventory() const {
     return NULL;
 }
 
-TArray<ASimulationActor*> UMinionControllerSimulationBaseComponent::GetDeployedMinionsForTagPair(FMinionConfigTagPair ConfigTagPair) {
+TArray<ASimulationActor*> UMinionControllerSimulationBaseComponent::GetDeployedMinionsForTagPair(const FMinionConfigTagPair& ConfigTagPair) {
     return TArray<ASimulationActor*>();
-}
-
-int32 UMinionControllerSimulationBaseComponent::GetDeployedMinionCountInTaggedGroups(UItemConfig* Config) const {
-    return 0;
 }
 
 int32 UMinionControllerSimulationBaseComponent::GetDeployedMinionCount(int32 MinionSlotIndex) const {
@@ -106,10 +102,6 @@ ASimulationActor* UMinionControllerSimulationBaseComponent::GetClosestControlled
 }
 
 TArray<ASimulationActor*> UMinionControllerSimulationBaseComponent::GetAllDeployedMinionsWithStat(FGameplayTag StatTag) const {
-    return TArray<ASimulationActor*>();
-}
-
-TArray<ASimulationActor*> UMinionControllerSimulationBaseComponent::GetAllDeployedMinionsWithoutGroupTag() const {
     return TArray<ASimulationActor*>();
 }
 

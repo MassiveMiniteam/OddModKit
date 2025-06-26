@@ -1,10 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "StaticMeshAndTransforms.h"
 #include "ItemStackingStrategy.generated.h"
 
 class UItemConfig;
+class UStaticMesh;
 
 UCLASS(Abstract, Blueprintable)
 class LOC_API UItemStackingStrategy : public UObject {
@@ -17,7 +17,7 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    FStaticMeshAndTransforms CalcStackLayout(const UItemConfig* ItemConfig, int32 Amount) const;
+    TSoftObjectPtr<UStaticMesh> CalcStackLayout(const UItemConfig* ItemConfig, int32 Amount) const;
     
 };
 
