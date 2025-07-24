@@ -1,6 +1,7 @@
 #include "AchievementsSubsystem.h"
 
 UAchievementsSubsystem::UAchievementsSubsystem() {
+    this->CurrentSaveDelay = 300.00f;
 }
 
 void UAchievementsSubsystem::SetAchievementsAllowed(bool bAllowed) {

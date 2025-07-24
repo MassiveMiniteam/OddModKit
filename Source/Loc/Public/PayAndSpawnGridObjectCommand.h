@@ -55,7 +55,7 @@ public:
     ASimulationPlayer* ExecutingSimulationPlayer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
-    TMap<FGameplayTag, FFixed> customData;
+    TMap<FGameplayTag, FFixed> CustomData;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

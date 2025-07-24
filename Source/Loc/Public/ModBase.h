@@ -2,8 +2,8 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "SimulationActorHookArray.h"
-#include "WidgetHookArray.h"
 #include "ModReplacedObject.h"
+#include "WidgetHookArray.h"
 #include "ModBase.generated.h"
 
 class AModSimulationActor;

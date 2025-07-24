@@ -81,10 +81,6 @@ USimulationActorComponent* ASimulationManager::GetPredictedActorComponent(USimul
     return NULL;
 }
 
-TArray<FIntPoint> ASimulationManager::GetMostBusyPositions(int32 Num, float Radius) {
-    return TArray<FIntPoint>();
-}
-
 void ASimulationManager::DestroySimulationActor(ASimulationActor* SimulationActor, EDestructionReason Reason) {
 }
 

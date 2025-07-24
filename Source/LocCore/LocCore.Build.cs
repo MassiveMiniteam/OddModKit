@@ -13,7 +13,6 @@ public class LocCore : ModuleRules {
             "DeveloperSettings",
             "Engine",
             "GameplayTags",
-            "Loc",
             "MMTFixed64",
             "NetCore",
             "UMG",

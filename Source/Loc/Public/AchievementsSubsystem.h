@@ -17,6 +17,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UAchievement*> AllAchievements;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float CurrentSaveDelay;
+    
 public:
     UAchievementsSubsystem();
 

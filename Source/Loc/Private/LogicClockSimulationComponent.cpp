@@ -1,7 +1,6 @@
 #include "LogicClockSimulationComponent.h"
 
 ULogicClockSimulationComponent::ULogicClockSimulationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bCanEverTick = true;
 }
 
 void ULogicClockSimulationComponent::SetOnTime(FFixed Time) {

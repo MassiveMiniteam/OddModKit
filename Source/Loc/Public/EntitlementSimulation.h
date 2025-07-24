@@ -12,6 +12,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UProductEntitlementDataAsset* EntitlementDataAsset;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bScheduleDestruction;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 CurrentDestructionDelayTicks;
+    
     UEntitlementSimulation(const FObjectInitializer& ObjectInitializer);
 
 };

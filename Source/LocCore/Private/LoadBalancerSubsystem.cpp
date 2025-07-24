@@ -14,14 +14,14 @@ UObject* ULoadBalancerSubsystem::LoadAssetBlockingNoFlush(const UObject* WorldOb
     return NULL;
 }
 
-void ULoadBalancerSubsystem::LoadAssetAsync(UObject* WorldObjectContext, TSoftObjectPtr<UObject> SoftObjectPtr, UObject* customData, const FAsyncEvent& Callback) {
+void ULoadBalancerSubsystem::LoadAssetAsync(UObject* WorldObjectContext, TSoftObjectPtr<UObject> SoftObjectPtr, UObject* CustomData, const FAsyncEvent& Callback) {
 }
 
 bool ULoadBalancerSubsystem::GetLoadAllBlocking() const {
     return false;
 }
 
-void ULoadBalancerSubsystem::AsyncLoad(TSoftObjectPtr<UObject> SoftObjectPtr, UObject* customData, const FAsyncEvent& Callback) {
+void ULoadBalancerSubsystem::AsyncLoad(TSoftObjectPtr<UObject> SoftObjectPtr, UObject* CustomData, const FAsyncEvent& Callback) {
 }
 
 

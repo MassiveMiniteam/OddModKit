@@ -4,5 +4,5 @@
 
 class UObject;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_TwoParams(FAsyncEvent, UObject*, LoadedObject, UObject*, customData);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_TwoParams(FAsyncEvent, UObject*, LoadedObject, UObject*, CustomData);
 

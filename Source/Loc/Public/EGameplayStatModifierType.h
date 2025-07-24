@@ -6,5 +6,7 @@ UENUM(BlueprintType)
 enum class EGameplayStatModifierType : uint8 {
     Add,
     Multiply,
+    OverwriteBaseValue,
+    OverwriteFinalValue,
 };
 

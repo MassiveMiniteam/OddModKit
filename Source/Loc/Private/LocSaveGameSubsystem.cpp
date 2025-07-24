@@ -116,7 +116,7 @@ ULocMetaSaveGame* ULocSaveGameSubsystem::CreateNewMetaSaveGame(const FString& Sl
     return NULL;
 }
 
-void ULocSaveGameSubsystem::CheckSaveGameModCompatibility(UObject* WorldContext, const FString& SlotName, FModdingCompatibilityEvent OnResult) {
+void ULocSaveGameSubsystem::CheckSaveGameCompatibility(UObject* WorldContext, const FString& SlotName, FModdingCompatibilityEvent OnResult) {
 }
 
 void ULocSaveGameSubsystem::Autosave(ULocSaveGame* SaveGame) {

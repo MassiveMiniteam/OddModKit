@@ -219,7 +219,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void DespawnAllUnits();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
     TArray<FItemStack> ComputeDifferenceOfMinionsInControlGroupsAndInventory() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

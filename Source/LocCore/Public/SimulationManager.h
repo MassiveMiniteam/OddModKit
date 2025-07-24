@@ -151,9 +151,6 @@ public:
     UFUNCTION(BlueprintCallable)
     USimulationActorComponent* GetPredictedActorComponent(USimulationActorComponent* Component);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    TArray<FIntPoint> GetMostBusyPositions(int32 Num, float Radius);
-    
     UFUNCTION(BlueprintCallable)
     void DestroySimulationActor(ASimulationActor* SimulationActor, EDestructionReason Reason);
     

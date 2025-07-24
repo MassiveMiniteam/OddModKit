@@ -110,6 +110,9 @@ public:
     bool HasAllTags(FGameplayTagContainer Tags) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FFixed GetStatValueDefault(FGameplayTag Tag) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FFixed GetStatValue(FGameplayTag Tag) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

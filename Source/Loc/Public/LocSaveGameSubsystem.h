@@ -174,7 +174,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
-    void CheckSaveGameModCompatibility(UObject* WorldContext, const FString& SlotName, FModdingCompatibilityEvent OnResult);
+    void CheckSaveGameCompatibility(UObject* WorldContext, const FString& SlotName, FModdingCompatibilityEvent OnResult);
     
     UFUNCTION(BlueprintCallable)
     void Autosave(ULocSaveGame* SaveGame);

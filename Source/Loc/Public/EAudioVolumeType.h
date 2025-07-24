@@ -10,5 +10,6 @@ enum class EAudioVolumeType : uint8 {
     Ambience,
     Workstations,
     Minions,
+    MusicDLC,
 };
 

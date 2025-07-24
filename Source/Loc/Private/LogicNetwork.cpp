@@ -2,8 +2,6 @@
 
 ALogicNetwork::ALogicNetwork(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->CurrentSignalValue = 0;
-    this->CurrentSignalValueRibbon = 0;
-    this->LogicChannel = TEXT("DefaultChannel");
 }
 
 void ALogicNetwork::RemoveConnection(ULogicConnectionSimulationComponent* Connection) {
@@ -12,7 +10,7 @@ void ALogicNetwork::RemoveConnection(ULogicConnectionSimulationComponent* Connec
 void ALogicNetwork::NotifySignalChange() {
 }
 
-bool ALogicNetwork::HasConnection(ULogicConnectionSimulationComponent* Connection) {
+bool ALogicNetwork::HasConnection(ULogicConnectionSimulationComponent* Connection) const {
     return false;
 }
 
@@ -20,23 +18,23 @@ FName ALogicNetwork::GetLogicChannel() {
     return NAME_None;
 }
 
-int32 ALogicNetwork::GetAsIntFromChannel(FName Channel) {
+int32 ALogicNetwork::GetAsIntFromChannel(FName Channel) const {
     return 0;
 }
 
-int32 ALogicNetwork::GetAsInt() {
+int32 ALogicNetwork::GetAsInt() const {
     return 0;
 }
 
-bool ALogicNetwork::GetAsBoolFromChannel(FName Channel) {
+bool ALogicNetwork::GetAsBoolFromChannel(FName Channel) const {
     return false;
 }
 
-bool ALogicNetwork::GetAsBool() {
+bool ALogicNetwork::GetAsBool() const {
     return false;
 }
 
-TArray<int32> ALogicNetwork::GetActiveBitsOnRibbonChannel() {
+TArray<int32> ALogicNetwork::GetActiveBitsOnRibbonChannel() const {
     return TArray<int32>();
 }
 

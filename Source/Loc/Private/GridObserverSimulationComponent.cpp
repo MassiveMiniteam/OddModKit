@@ -7,6 +7,8 @@ UGridObserverSimulationComponent::UGridObserverSimulationComponent(const FObject
 void UGridObserverSimulationComponent::OnRelocated(UPositionSimulationComponent* PositionSimulationComponent, FIntVector LastPosition) {
 }
 
+void UGridObserverSimulationComponent::OnGridCellChanged_Implementation(AGridObject* GridObject, FIntPoint GridPosition) {
+}
 
 TArray<FIntPoint> UGridObserverSimulationComponent::GetTargetCells() const {
     return TArray<FIntPoint>();

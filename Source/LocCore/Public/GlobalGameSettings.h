@@ -14,6 +14,9 @@ public:
     static bool SupportsAchievementUnlockFromProfileSaveGame();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool RestrictSavegamesWithDLCs();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsXboxDemoWishlistButtonSupported();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

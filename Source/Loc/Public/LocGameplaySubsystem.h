@@ -2,10 +2,10 @@
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "GameplayTagContainer.h"
-#include "WidgetHookArray.h"
 #include "CachedItemRecipeRelationshipArray.h"
 #include "InjectedRecipeArray.h"
 #include "Templates/SubclassOf.h"
+#include "WidgetHookArray.h"
 #include "LocGameplaySubsystem.generated.h"
 
 class ASimulationActor;
@@ -20,6 +20,7 @@ class UInputActionCategoryData;
 class UItemConfig;
 class UObject;
 class UObjectLibrary;
+class UProductEntitlementDataAsset;
 class UQuestConfig;
 class UQuestOverviewCategory;
 class URecipeConfig;
@@ -47,6 +48,9 @@ private:
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<UClass*, FWidgetHookArray> WidgetHooks;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<UProductEntitlementDataAsset*> EntitlementDataAssets;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UItemConfig*> AllItemConfigs;

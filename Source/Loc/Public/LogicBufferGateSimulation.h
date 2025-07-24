@@ -3,6 +3,7 @@
 #include "Fixed.h"
 #include "SimulationActorComponent.h"
 #include "CopyToolUseable.h"
+#include "LogicTickingComponentInterface.h"
 #include "LogicBufferGateSimulation.generated.h"
 
 class ULogicConnectionSimulationComponent;
@@ -10,13 +11,14 @@ class ULogicInputSimulationComponent;
 class ULogicOutputSimulationComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class LOC_API ULogicBufferGateSimulation : public USimulationActorComponent, public ICopyToolUseable {
+class LOC_API ULogicBufferGateSimulation : public USimulationActorComponent, public ICopyToolUseable, public ILogicTickingComponentInterface {
     GENERATED_BODY()
 public:
+protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     FFixed BufferTime;
     
-protected:
+private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     FFixed BufferTimer;
     
@@ -32,7 +34,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetBufferTargetTime(FFixed NewBufferTime);
     
-protected:
+private:
     UFUNCTION(BlueprintCallable)
     void OnInputSignalChanged(ULogicConnectionSimulationComponent* Input);
     

@@ -54,6 +54,10 @@ bool UStatsComponent::HasAllTags(FGameplayTagContainer Tags) const {
     return false;
 }
 
+FFixed UStatsComponent::GetStatValueDefault(FGameplayTag Tag) const {
+    return FFixed{};
+}
+
 FFixed UStatsComponent::GetStatValue(FGameplayTag Tag) const {
     return FFixed{};
 }

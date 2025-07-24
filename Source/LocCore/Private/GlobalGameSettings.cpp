@@ -7,6 +7,10 @@ bool UGlobalGameSettings::SupportsAchievementUnlockFromProfileSaveGame() {
     return false;
 }
 
+bool UGlobalGameSettings::RestrictSavegamesWithDLCs() {
+    return false;
+}
+
 bool UGlobalGameSettings::IsXboxDemoWishlistButtonSupported() {
     return false;
 }

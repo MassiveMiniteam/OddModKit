@@ -4,17 +4,15 @@
 #include "SimulationActorComponent.h"
 #include "CopyToolUseable.h"
 #include "LogicClockEventDelegate.h"
+#include "LogicTickingComponentInterface.h"
 #include "LogicClockSimulationComponent.generated.h"
 
 class ULogicOutputSimulationComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class LOC_API ULogicClockSimulationComponent : public USimulationActorComponent, public ICopyToolUseable {
+class LOC_API ULogicClockSimulationComponent : public USimulationActorComponent, public ICopyToolUseable, public ILogicTickingComponentInterface {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FLogicClockEvent OnTargetValuesChanged;
-    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     FFixed OffTime;
@@ -27,6 +25,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Export, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<ULogicOutputSimulationComponent> LogicOutput;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FLogicClockEvent OnTargetValuesChanged;
     
 public:
     ULogicClockSimulationComponent(const FObjectInitializer& ObjectInitializer);

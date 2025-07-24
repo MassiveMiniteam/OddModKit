@@ -15,17 +15,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     int32 CurrentSignalValue;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
-    int32 CurrentSignalValueRibbon;
-    
     UPROPERTY(EditAnywhere, Export, SaveGame, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<ULogicInputSimulationComponent>> LogicInputs;
     
     UPROPERTY(EditAnywhere, Export, SaveGame, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<ULogicOutputSimulationComponent>> LogicOutputs;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName LogicChannel;
     
 public:
     ALogicNetwork(const FObjectInitializer& ObjectInitializer);
@@ -39,25 +33,25 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable)
-    bool HasConnection(ULogicConnectionSimulationComponent* Connection);
+    bool HasConnection(ULogicConnectionSimulationComponent* Connection) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FName GetLogicChannel();
+    static FName GetLogicChannel();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetAsIntFromChannel(FName Channel);
+    int32 GetAsIntFromChannel(FName Channel) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetAsInt();
+    int32 GetAsInt() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool GetAsBoolFromChannel(FName Channel);
+    bool GetAsBoolFromChannel(FName Channel) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool GetAsBool();
+    bool GetAsBool() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<int32> GetActiveBitsOnRibbonChannel();
+    TArray<int32> GetActiveBitsOnRibbonChannel() const;
     
     UFUNCTION(BlueprintCallable)
     void AddConnection(ULogicConnectionSimulationComponent* Connection);

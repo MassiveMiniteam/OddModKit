@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Engine/EngineTypes.h"
 #include "GameplayTagContainer.h"
+#include "Fixed.h"
 #include "LogicSensorFoundActorsFilterStrategy.h"
 #include "LogicSensorFoundActorsFilterStrategy_TagsAndInventory.generated.h"
 
@@ -18,6 +19,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FComponentReference InventoryAssociatedClassesFilter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FFixed SubgridProgressTreshold;
     
 public:
     ULogicSensorFoundActorsFilterStrategy_TagsAndInventory();

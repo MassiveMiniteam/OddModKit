@@ -26,7 +26,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnRelocated(UPositionSimulationComponent* PositionSimulationComponent, FIntVector LastPosition);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnGridCellChanged(AGridObject* GridObject, FIntPoint GridPosition);
     
 public:

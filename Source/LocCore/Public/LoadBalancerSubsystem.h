@@ -22,13 +22,13 @@ public:
     static UObject* LoadAssetBlockingNoFlush(const UObject* WorldObjectContext, TSoftObjectPtr<UObject> SoftObjectPtr);
     
     UFUNCTION(BlueprintCallable)
-    static void LoadAssetAsync(UObject* WorldObjectContext, TSoftObjectPtr<UObject> SoftObjectPtr, UObject* customData, const FAsyncEvent& Callback);
+    static void LoadAssetAsync(UObject* WorldObjectContext, TSoftObjectPtr<UObject> SoftObjectPtr, UObject* CustomData, const FAsyncEvent& Callback);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetLoadAllBlocking() const;
     
     UFUNCTION(BlueprintCallable)
-    void AsyncLoad(TSoftObjectPtr<UObject> SoftObjectPtr, UObject* customData, const FAsyncEvent& Callback);
+    void AsyncLoad(TSoftObjectPtr<UObject> SoftObjectPtr, UObject* CustomData, const FAsyncEvent& Callback);
     
 };
 

@@ -5,18 +5,23 @@
 #include "LogicNetworkManagerSubsystem.generated.h"
 
 class ALogicNetwork;
+class UActorComponent;
 class ULogicOutputSimulationComponent;
 
 UCLASS(Blueprintable)
 class LOC_API ULogicNetworkManagerSubsystem : public UGridNetworkManagerSubsystem {
     GENERATED_BODY()
 public:
+private:
     UPROPERTY(EditAnywhere, Export, meta=(AllowPrivateAccess=true))
-    TArray<TWeakObjectPtr<ULogicOutputSimulationComponent>> PropagatingOutputs;
+    TArray<TWeakObjectPtr<UActorComponent>> LogicTickingComponents;
     
 protected:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<ALogicNetwork>> DirtyNetworks;
+    
+    UPROPERTY(EditAnywhere, Export, meta=(AllowPrivateAccess=true))
+    TArray<TWeakObjectPtr<ULogicOutputSimulationComponent>> DirtyOutputsWithoutNetwork;
     
 public:
     ULogicNetworkManagerSubsystem();

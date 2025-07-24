@@ -3,7 +3,6 @@
 ULogicConnectionSimulationComponent::ULogicConnectionSimulationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->DefaultValue = 0;
     this->OwnerPositionComponent = NULL;
-    this->bNeedsRefresh = false;
     this->bWarningAboutConnection = false;
 }
 

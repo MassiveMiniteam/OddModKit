@@ -5,6 +5,7 @@ UProductEntitlementDataAsset::UProductEntitlementDataAsset() {
     this->GOGProductID = 0;
     this->GOGStoreURL = TEXT("https://www.gog.com/game/are_you_smarter_than_a_5th_grader_extra_credit");
     this->XBoxEntitlementType = EXBoxEntitlementType::Core;
+    this->bRestrictSavegames = true;
     this->SwitchAddOnContentIndex = 0;
     this->bShowInUI = true;
     this->bDefaultEntitled = false;

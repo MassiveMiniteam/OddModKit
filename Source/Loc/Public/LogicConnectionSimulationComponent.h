@@ -37,9 +37,6 @@ private:
     TWeakObjectPtr<ALogicNetwork> MyNetwork;
     
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bNeedsRefresh;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     bool bWarningAboutConnection;
     

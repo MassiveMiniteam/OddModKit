@@ -22,6 +22,7 @@ ULocGlobalSettingsSave::ULocGlobalSettingsSave() {
     this->AmbienceVolume = 1.00f;
     this->WorkstationsVolume = 1.00f;
     this->MinionsVolume = 1.00f;
+    this->MusicDLCVolume = 1.00f;
     this->UIScale = 1.00f;
     this->ScreenShakeIntensity = 1.00f;
     this->bForceAccurateTimestep = true;
@@ -37,7 +38,8 @@ ULocGlobalSettingsSave::ULocGlobalSettingsSave() {
     this->bXboxButtonLayout = true;
     this->bEnableMisophonia = false;
     this->bEnableMisophoniaElectric = false;
-    this->bEnableTickingActorSounds = true;
+    this->bSilenceTickingActorSounds = false;
+    this->bGlobalMusicDLCSounds = false;
     this->bIsInitialSetupDone = false;
     this->AspectRationIndex = 0;
 }

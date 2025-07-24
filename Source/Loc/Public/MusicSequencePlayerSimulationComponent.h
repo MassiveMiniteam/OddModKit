@@ -1,30 +1,40 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Engine/EngineTypes.h"
+#include "SimulationActorComponent.h"
 #include "CopyToolUseable.h"
 #include "MusicPitch.h"
+#include "MusicSequenceEventWithPitchesDelegate.h"
 #include "MusicSquenceEventDelegate.h"
-#include "SimulationTimerComponent.h"
 #include "MusicSequencePlayerSimulationComponent.generated.h"
 
+class UAudioComponent;
 class UInventoryComponent;
 class UItemConfig;
+class ULogicConnectionSimulationComponent;
+class UMusicInstrumentMappingDataAsset;
+class UQuartzClockHandle;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class LOC_API UMusicSequencePlayerSimulationComponent : public USimulationTimerComponent, public ICopyToolUseable {
+class LOC_API UMusicSequencePlayerSimulationComponent : public USimulationActorComponent, public ICopyToolUseable {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FComponentReference InstrumentInventoryRef;
+    UMusicInstrumentMappingDataAsset* MusicInstrumentMappingDataAsset;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FComponentReference NoteInventoryRef;
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FMusicSquenceEvent OnSettingsChanged;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FComponentReference OctaveInventoryRef;
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FMusicSequenceEventWithPitches OnPlayNoteScheduledToQuartz;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bTreatEmptyNoteAsC;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bBindPlayNoteToLogicComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 Num32BetweenNotes;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UInventoryComponent* InstrumentInventory;
@@ -35,72 +45,57 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UInventoryComponent* OctaveInventory;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
-    bool bLoop;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    ULogicConnectionSimulationComponent* LogicComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     bool bSustainSound;
     
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FMusicSquenceEvent OnSustainSoundChanged;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    bool bForceGlobalSound;
     
 protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bHideForceGlobalSoundOptionInUI;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UQuartzClockHandle* ClockHandle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    TArray<UAudioComponent*> AudioComponents;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FMusicPitch CurrentPitch;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
-    int32 CurrentSequenceIndex;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
-    bool bIsPlayingMusic;
-    
-    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FMusicSquenceEvent OnInstrumentChanged;
+    TArray<FMusicPitch> CachedMusicPitches;
     
 public:
     UMusicSequencePlayerSimulationComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
-    void StopSequence();
-    
-    UFUNCTION(BlueprintCallable)
-    void StopCurrentNote();
-    
-    UFUNCTION(BlueprintCallable)
-    void StartCurrentNote();
-    
-    UFUNCTION(BlueprintCallable)
     void SetSustainSound(bool bSustainSoundIn);
     
-protected:
     UFUNCTION(BlueprintCallable)
-    void RefreshCurrentNote();
+    void SetForceGlobalSound(bool bForceGlobalSoundIn);
     
-public:
     UFUNCTION(BlueprintCallable)
-    void PlaySequence(bool bLoopIn);
+    void PlaySequence();
     
-protected:
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnNoteOrOctaveInventorySlotChanged(int32 SlotIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnLogicSignalChanged(ULogicConnectionSimulationComponent* Input);
+    
     UFUNCTION(BlueprintCallable)
     void OnInstrumentInventoryChanged(UInventoryComponent* Inventory, bool bAdded, UItemConfig* Item);
     
 public:
-    UFUNCTION(BlueprintCallable)
-    void NextIndex();
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsSustainSound() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsSustainSound();
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsPlayingMusic();
-    
-protected:
-    UFUNCTION(BlueprintCallable)
-    void InventorySlotChanged(int32 SlotIndex);
-    
-public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    FMusicPitch GetCurrentPitch() const;
+    bool HasForcedGlobalSound() const;
     
 
     // Fix for true pure virtual functions not being implemented
