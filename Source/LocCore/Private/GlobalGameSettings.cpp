@@ -15,6 +15,10 @@ bool UGlobalGameSettings::IsXboxDemoWishlistButtonSupported() {
     return false;
 }
 
+bool UGlobalGameSettings::IsWinGDK() {
+    return false;
+}
+
 bool UGlobalGameSettings::IsVibrationSupported() {
     return false;
 }

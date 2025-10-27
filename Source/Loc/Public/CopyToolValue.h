@@ -24,6 +24,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     UObject* Payload;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    UObject* Payload2;
+    
     LOC_API FCopyToolValue();
 };
 

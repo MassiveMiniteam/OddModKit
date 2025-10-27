@@ -2,7 +2,9 @@
 
 USetGroundLayerCommand::USetGroundLayerCommand() {
     this->Grid = NULL;
-    this->Layer = NULL;
+    this->ConstructableGroundTileConfig = NULL;
+    this->ExecutingPlayer = NULL;
+    this->ConstructableFloorsSubsystem = NULL;
 }
 
 

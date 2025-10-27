@@ -3,8 +3,10 @@
 UAreaSelectionInputContext::UAreaSelectionInputContext() {
     this->FinishSelectionAction = NULL;
     this->CancelInputAction = NULL;
+    this->DeconstructAction = NULL;
     this->CursorInputContext = NULL;
     this->bAreaSelectionActive = false;
+    this->bIsInDeconstructMode = false;
     this->CursorType = NULL;
     this->GridIndicatorClass = NULL;
     this->GamepadMovementInputContextClass = NULL;
@@ -20,6 +22,9 @@ void UAreaSelectionInputContext::OnNewCellHovered_Implementation(FIntPoint Cell,
 }
 
 
+
+void UAreaSelectionInputContext::OnDeconstructAction(UInputActionData* InputAction, ALocPlayerController* Player) {
+}
 
 void UAreaSelectionInputContext::OnCancelInput(UInputActionData* InputAction, ALocPlayerController* Player) {
 }

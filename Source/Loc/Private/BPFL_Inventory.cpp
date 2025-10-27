@@ -3,7 +3,7 @@
 UBPFL_Inventory::UBPFL_Inventory() {
 }
 
-bool UBPFL_Inventory::TryConsumeItemsInMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& ItemsToConsume) {
+bool UBPFL_Inventory::TryConsumeItemsInMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& ItemsToConsume, bool bIgnoreData) {
     return false;
 }
 
@@ -19,7 +19,11 @@ bool UBPFL_Inventory::LocalPlayerCanAffordConstruction(const UObject* WorldConte
     return false;
 }
 
-int32 UBPFL_Inventory::HowManyTimesCanTheRequestedItemsBeConsumedDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems) {
+int32 UBPFL_Inventory::HowManyTimesCanTheRequestedItemsBeConsumedDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems, bool bIgnoreData) {
+    return 0;
+}
+
+int32 UBPFL_Inventory::GetAmountOfItemsForMultipleInventories_ConfigAndData(const TArray<UInventoryComponent*>& Inventories, FItemStack ConfigAndData) {
     return 0;
 }
 
@@ -31,7 +35,7 @@ TArray<UInventoryComponent*> UBPFL_Inventory::GetAllUsableInventoriesIncludingSp
     return TArray<UInventoryComponent*>();
 }
 
-TArray<FItemStack> UBPFL_Inventory::GetAllItemsOfMultipleInventories(const TArray<UInventoryComponent*>& Inventories) {
+TArray<FItemStack> UBPFL_Inventory::GetAllItemsOfMultipleInventories(const TArray<UInventoryComponent*>& Inventories, bool bIgnoreData) {
     return TArray<FItemStack>();
 }
 
@@ -39,7 +43,7 @@ TArray<UInventoryComponent*> UBPFL_Inventory::GetAllInventoriesUsableToLocalPlay
     return TArray<UInventoryComponent*>();
 }
 
-bool UBPFL_Inventory::CanConsumeItemsDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems) {
+bool UBPFL_Inventory::CanConsumeItemsDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems, bool bIgnoreData) {
     return false;
 }
 

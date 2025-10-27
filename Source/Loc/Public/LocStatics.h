@@ -135,6 +135,9 @@ public:
     static int32 RoundRotationToDirections(int32 ZRotation);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FIntVector RotateIntVector_Fixed64Precision(FIntVector Vector, FFixed64 Angle);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FIntVector RotateIntVector(FIntVector Vector, FFixed Angle);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

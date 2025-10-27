@@ -4,6 +4,7 @@
 #include "Fixed.h"
 #include "SimulationActorComponent.h"
 #include "EFactionType.h"
+#include "ItemStack.h"
 #include "OnPerceivedActorsUpdatedDelegate.h"
 #include "Templates/SubclassOf.h"
 #include "AIPerceptionSimulationComponent.generated.h"
@@ -11,7 +12,6 @@
 class AGrid;
 class ASimulationActor;
 class UGameplayAbility;
-class UItemConfig;
 class UPathFinderComponent;
 class UPositionSimulationComponent;
 class UStatsComponent;
@@ -52,7 +52,7 @@ public:
     FFixed GetCostForTargetingActorWithAbility(const ASimulationActor* Actor, TSubclassOf<UGameplayAbility> Ability) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    ASimulationActor* GetClosestPickUpItem(TArray<UItemConfig*> OptionalWhitelist, bool bIgnoreReservedStat) const;
+    ASimulationActor* GetClosestPickUpItem(FItemStack TypeFilter, bool bIgnoreReservedStat) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ASimulationActor* GetClosestAttackableActorWithIgnoreTags(TSubclassOf<UGameplayAbility> Ability, TArray<EFactionType> OptionalFactionWhiteList, TArray<FGameplayTag> IgnoreTags, bool OnlyPrey, bool bOnlyTargetsThatAreAlreadyInCombatWithMyFaction, int32 MaxDistanceOverride) const;

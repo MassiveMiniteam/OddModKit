@@ -41,5 +41,9 @@ private:
 public:
     UTrainAgentPresentationComponent(const FObjectInitializer& ObjectInitializer);
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnTrainAgentPositionUpdated(UTrainTracksAgentSimulationComponent* TrainTracksAgentSimulationComponent);
+    
 };
 

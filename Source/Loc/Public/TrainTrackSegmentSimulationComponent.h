@@ -3,6 +3,7 @@
 #include "SimulationActorComponent.h"
 #include "Fixed64.h"
 #include "Fixed64Spline.h"
+#include "Fixed64SplinePoint.h"
 #include "TrainTrackSegmentSimulationComponent.generated.h"
 
 class UPositionSimulationComponent;
@@ -27,11 +28,29 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Export, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UPositionSimulationComponent> CachedPositionComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    TArray<FFixed64SplinePoint> OverwriteSplinePoints;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    bool bTrainIgnoresSlope;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    int32 FixedAmountOfSegments;
+    
 public:
     UTrainTrackSegmentSimulationComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void UpdateCachedSpline();
+    
+    UFUNCTION(BlueprintCallable)
+    void SetTrainIgnoresSlope(bool bIgnoreSlope);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetOverwriteSpline(const TArray<FFixed64SplinePoint>& SplinePoints);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetFixedAmountOfSegments(int32 Amount);
     
     UFUNCTION(BlueprintCallable)
     void RemoveConnections();
@@ -43,7 +62,13 @@ public:
     bool IsConnectedTo(const UTrainTracksPoleBaseSimulationComponent* Pole) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetTrainIgnoresSlope() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FFixed64 GetLength() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetFixedAmountOfSegments() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UTrainTracksPoleConnectionSimulationComponent* GetConnectedPoleStart() const;

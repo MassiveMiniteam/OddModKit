@@ -5,6 +5,7 @@
 #include "ShopItemTableRow.generated.h"
 
 class UDataTable;
+class UProductEntitlementDataAsset;
 class UUnlockableDataAsset;
 
 USTRUCT(BlueprintType)
@@ -22,6 +23,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UDataTable* RelatedDataTable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UProductEntitlementDataAsset* ProductEntitlementDataAsset;
     
     FShopItemTableRow();
 };

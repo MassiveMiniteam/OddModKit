@@ -4,5 +4,6 @@ FCopyToolValue::FCopyToolValue() {
     this->DataInt = 0;
     this->DataBool = false;
     this->Payload = NULL;
+    this->Payload2 = NULL;
 }
 

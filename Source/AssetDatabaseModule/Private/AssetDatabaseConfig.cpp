@@ -1,7 +1,7 @@
 #include "AssetDatabaseConfig.h"
 
 UAssetDatabaseConfig::UAssetDatabaseConfig() {
-    this->RedirectorPaths.AddDefaulted(679);
+    this->RedirectorPaths.AddDefaulted(691);
 }
 
 

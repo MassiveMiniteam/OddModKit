@@ -9,10 +9,7 @@ void UInventoryChangedPresentationComponent::Unbind() {
 void UInventoryChangedPresentationComponent::SetAndBindInventory(UInventoryComponent* InInventory) {
 }
 
-void UInventoryChangedPresentationComponent::OnInventoryItemRemoved_Implementation(UItemConfig* Config, int32 Amount, UObject* Origin) {
-}
-
-void UInventoryChangedPresentationComponent::OnInventoryItemAdded_Implementation(UItemConfig* Config, int32 Amount, UObject* Origin) {
+void UInventoryChangedPresentationComponent::OnInventoryItemAdded_Implementation(FItemStack Stack, UObject* Origin) {
 }
 
 

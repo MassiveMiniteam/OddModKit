@@ -10,7 +10,7 @@ FFixed UAIPerceptionSimulationComponent::GetCostForTargetingActorWithAbility(con
     return FFixed{};
 }
 
-ASimulationActor* UAIPerceptionSimulationComponent::GetClosestPickUpItem(TArray<UItemConfig*> OptionalWhitelist, bool bIgnoreReservedStat) const {
+ASimulationActor* UAIPerceptionSimulationComponent::GetClosestPickUpItem(FItemStack TypeFilter, bool bIgnoreReservedStat) const {
     return NULL;
 }
 

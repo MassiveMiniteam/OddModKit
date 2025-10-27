@@ -11,10 +11,13 @@
 #include "Templates/SubclassOf.h"
 #include "BossPhasesSimulationComponent.generated.h"
 
+class AGridObject;
 class AQuestInstance;
+class UBiomeCellConfig;
 class UBossPhase;
 class UElementStateSimulationComponent;
 class UIncubatorSimulationComponent;
+class UPathFindingRequest;
 class UQuestManagerSimulationComponent;
 class UStatsComponent;
 
@@ -40,6 +43,18 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBossPhaseEvent OnBossPhaseEnd;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UBiomeCellConfig* EnemyCellConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UBiomeCellConfig* BossCellConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 ConnectingDistanceFromEdge;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<AGridObject> GridConnectionActor;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Export, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<UQuestManagerSimulationComponent> QuestManager;
@@ -55,6 +70,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
     int32 LastProgress;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    bool bCheckedForWalkability;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, meta=(AllowPrivateAccess=true))
+    UPathFindingRequest* WalkabilityPathRequest;
     
 public:
     UBossPhasesSimulationComponent(const FObjectInitializer& ObjectInitializer);

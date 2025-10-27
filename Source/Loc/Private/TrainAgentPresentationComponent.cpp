@@ -5,4 +5,7 @@ UTrainAgentPresentationComponent::UTrainAgentPresentationComponent(const FObject
     this->AudioComponent = NULL;
 }
 
+void UTrainAgentPresentationComponent::OnTrainAgentPositionUpdated(UTrainTracksAgentSimulationComponent* TrainTracksAgentSimulationComponent) {
+}
+
 

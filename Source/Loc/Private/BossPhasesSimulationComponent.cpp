@@ -3,7 +3,13 @@
 
 UBossPhasesSimulationComponent::UBossPhasesSimulationComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->ActiveBossPhase = NULL;
+    this->EnemyCellConfig = NULL;
+    this->BossCellConfig = NULL;
+    this->ConnectingDistanceFromEdge = 5;
+    this->GridConnectionActor = NULL;
     this->LastProgress = -1;
+    this->bCheckedForWalkability = false;
+    this->WalkabilityPathRequest = NULL;
 }
 
 void UBossPhasesSimulationComponent::StartBossPhase(TSubclassOf<UBossPhase> BossPhaseClass) {

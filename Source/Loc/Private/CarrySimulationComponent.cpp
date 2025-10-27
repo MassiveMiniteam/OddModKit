@@ -28,14 +28,6 @@ FFixed UCarrySimulationComponent::GetPickupDelay() const {
     return FFixed{};
 }
 
-TArray<UItemConfig*> UCarrySimulationComponent::GetItemPickUpWhiteList() const {
-    return TArray<UItemConfig*>();
-}
-
-UItemConfig* UCarrySimulationComponent::GetCarryItemConfig() const {
-    return NULL;
-}
-
 FItemStack UCarrySimulationComponent::GetCarriedItemStack() const {
     return FItemStack{};
 }

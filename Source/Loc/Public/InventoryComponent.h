@@ -6,6 +6,7 @@
 #include "InventoryChangeEventDelegate.h"
 #include "InventoryEventDelegate.h"
 #include "InventorySlotDeletedEventDelegate.h"
+#include "ItemAddeWithDataEventDelegate.h"
 #include "ItemAddedEventDelegate.h"
 #include "ItemStack.h"
 #include "SlotChangedEventDelegate.h"
@@ -58,6 +59,9 @@ public:
     FItemAddedEvent OnItemAdded;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FItemAddeWithDataEvent OnItemAdded_WithData;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FItemAddedEvent OnItemRemoved;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -78,7 +82,7 @@ public:
     UInventoryComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
-    bool TryToConsumeItems(const TArray<FItemStack>& ItemsToConsume, UObject* Origin);
+    bool TryToConsumeItems(const TArray<FItemStack>& ItemsToConsume, UObject* Origin, bool bIgnoreData);
     
     UFUNCTION(BlueprintCallable)
     bool TryToConsumeItemAt(const FItemStack& Item, int32 SlotIndex, UObject* Origin);
@@ -123,10 +127,10 @@ public:
     bool IsEmpty() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool HasAnyItemConfigAsOtherInventory(const UInventoryComponent* OtherInventory);
+    bool HasAnyItemConfigAsOtherInventory(const UInventoryComponent* OtherInventory) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool HasAllItemConfigsAsOtherInventory(const UInventoryComponent* OtherInventory);
+    bool HasAllItemConfigsAsOtherInventory(const UInventoryComponent* OtherInventory) const;
     
     UFUNCTION(BlueprintCallable)
     FItemStack GetUpToXItemsFromSlot(int32 MaxAmount, int32 SlotIndex);
@@ -136,6 +140,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     FItemStack GetUpToXItemsFromConfig(int32 MaxAmount, UItemConfig* Type);
+    
+    UFUNCTION(BlueprintCallable)
+    FItemStack GetUpToXItems(FItemStack RequestedItemStack);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<UItemConfig*> GetUniqueConfigs() const;
@@ -204,7 +211,7 @@ public:
     bool ContainsItem(const FItemStack& Stack) const;
     
     UFUNCTION(BlueprintCallable)
-    void ConsumeAndReturnRest(TArray<FItemStack>& RemainingItems, UObject* Origin);
+    void ConsumeAndReturnRest(TArray<FItemStack>& RemainingItems, UObject* Origin, bool bIgnoreData);
     
     UFUNCTION(BlueprintCallable)
     void Clear();
@@ -213,7 +220,7 @@ public:
     bool CanTransferItemsTo(UInventoryComponent* TargetInventory, int32 FromSlot, int32 TargetSlot);
     
     UFUNCTION(BlueprintCallable)
-    bool CanConsumeItems(const TArray<FItemStack>& ItemsToConsume);
+    bool CanConsumeItems(const TArray<FItemStack>& ItemsToConsume, bool bIgnoreData);
     
     UFUNCTION(BlueprintCallable)
     bool CanAddItems(const TArray<FItemStack>& Stacks);

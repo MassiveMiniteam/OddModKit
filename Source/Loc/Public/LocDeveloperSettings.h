@@ -143,6 +143,9 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FVector2D> PossibleAspectRatios;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<AActor> GroundLayerPresentationActor;
+    
     ULocDeveloperSettings();
 
     UFUNCTION(BlueprintCallable)

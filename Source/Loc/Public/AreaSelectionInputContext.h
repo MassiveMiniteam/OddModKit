@@ -22,6 +22,9 @@ protected:
     UInputActionData* CancelInputAction;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UInputActionData* DeconstructAction;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FIntPoint PreviousHoveredCell;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -32,6 +35,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAreaSelectionActive;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsInDeconstructMode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<AActor> CursorType;
@@ -60,6 +66,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEnteredAreaSelectionMode();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnDeconstructAction(UInputActionData* InputAction, ALocPlayerController* Player);
     
     UFUNCTION(BlueprintCallable)
     void OnCancelInput(UInputActionData* InputAction, ALocPlayerController* Player);

@@ -9,7 +9,7 @@ UInventoryComponent::UInventoryComponent(const FObjectInitializer& ObjectInitial
     this->bIsInFirstPredictionTransfer = false;
 }
 
-bool UInventoryComponent::TryToConsumeItems(const TArray<FItemStack>& ItemsToConsume, UObject* Origin) {
+bool UInventoryComponent::TryToConsumeItems(const TArray<FItemStack>& ItemsToConsume, UObject* Origin, bool bIgnoreData) {
     return false;
 }
 
@@ -63,11 +63,11 @@ bool UInventoryComponent::IsEmpty() const {
     return false;
 }
 
-bool UInventoryComponent::HasAnyItemConfigAsOtherInventory(const UInventoryComponent* OtherInventory) {
+bool UInventoryComponent::HasAnyItemConfigAsOtherInventory(const UInventoryComponent* OtherInventory) const {
     return false;
 }
 
-bool UInventoryComponent::HasAllItemConfigsAsOtherInventory(const UInventoryComponent* OtherInventory) {
+bool UInventoryComponent::HasAllItemConfigsAsOtherInventory(const UInventoryComponent* OtherInventory) const {
     return false;
 }
 
@@ -80,6 +80,10 @@ FItemStack UInventoryComponent::GetUpToXItemsFromFirstValidConfig(int32 MaxAmoun
 }
 
 FItemStack UInventoryComponent::GetUpToXItemsFromConfig(int32 MaxAmount, UItemConfig* Type) {
+    return FItemStack{};
+}
+
+FItemStack UInventoryComponent::GetUpToXItems(FItemStack RequestedItemStack) {
     return FItemStack{};
 }
 
@@ -169,7 +173,7 @@ bool UInventoryComponent::ContainsItem(const FItemStack& Stack) const {
     return false;
 }
 
-void UInventoryComponent::ConsumeAndReturnRest(TArray<FItemStack>& RemainingItems, UObject* Origin) {
+void UInventoryComponent::ConsumeAndReturnRest(TArray<FItemStack>& RemainingItems, UObject* Origin, bool bIgnoreData) {
 }
 
 void UInventoryComponent::Clear() {
@@ -179,7 +183,7 @@ bool UInventoryComponent::CanTransferItemsTo(UInventoryComponent* TargetInventor
     return false;
 }
 
-bool UInventoryComponent::CanConsumeItems(const TArray<FItemStack>& ItemsToConsume) {
+bool UInventoryComponent::CanConsumeItems(const TArray<FItemStack>& ItemsToConsume, bool bIgnoreData) {
     return false;
 }
 

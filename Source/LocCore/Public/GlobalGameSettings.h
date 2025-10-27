@@ -20,6 +20,9 @@ public:
     static bool IsXboxDemoWishlistButtonSupported();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsWinGDK();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsVibrationSupported();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

@@ -5,7 +5,7 @@
 #include "LocomotiveSimulationComponent.generated.h"
 
 class UInventoryComponent;
-class UItemDecayComponent;
+class ULocomotiveStrategy;
 class UPlayerInputForwardSimulationComponent;
 class UStatsComponent;
 class UTrainTracksAgentSimulationComponent;
@@ -25,10 +25,10 @@ private:
     UPlayerInputForwardSimulationComponent* PlayerInputComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UItemDecayComponent* FuelDecayComponent;
+    UTrainTracksAgentSimulationComponent* TrainAgentComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UTrainTracksAgentSimulationComponent* TrainAgentComponent;
+    ULocomotiveStrategy* Strategy;
     
 public:
     ULocomotiveSimulationComponent(const FObjectInitializer& ObjectInitializer);
@@ -39,22 +39,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool WantsToDriveBackward() const;
     
-private:
-    UFUNCTION(BlueprintCallable)
-    void OnMovementStopped(UTrainTracksAgentSimulationComponent* Agent);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnMovementStarted(UTrainTracksAgentSimulationComponent* Agent);
-    
-public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasPlayerInput() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasMovementBlockedStat() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool HasFuel() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FFixed64 GetCurrentMovementSpeed() const;

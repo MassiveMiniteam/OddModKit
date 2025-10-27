@@ -68,7 +68,7 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGridObjectEvent OnGridObjectUnregistered;
     
-    UPROPERTY(BlueprintCallable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGlobalGridCellMeshNeedsUpdateEvent OnGridCellMeshNeedsUpdate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -98,7 +98,10 @@ public:
     void SetGridTileLandscapeLayer(FIntPoint GridPosition, UGridTileLandscapeLayer* Layer);
     
     UFUNCTION(BlueprintCallable)
-    void SetGridTileGroundLayer(FIntPoint GridPosition, UGridTileGroundLayer* Layer);
+    void SetGridTileGroundLayer(FIntPoint GridPosition, UGridTileGroundLayer* Layer, bool bNotifyUpdate);
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestUpdateForTiles(TArray<FIntPoint>& PointsToUpdate);
     
     UFUNCTION(BlueprintCallable)
     void RemoveSimulationActorToCell(FIntPoint position, ASimulationActor* SimulationActor);

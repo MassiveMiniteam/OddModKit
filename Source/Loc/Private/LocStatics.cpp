@@ -79,6 +79,10 @@ int32 ULocStatics::RoundRotationToDirections(int32 ZRotation) {
     return 0;
 }
 
+FIntVector ULocStatics::RotateIntVector_Fixed64Precision(FIntVector Vector, FFixed64 Angle) {
+    return FIntVector{};
+}
+
 FIntVector ULocStatics::RotateIntVector(FIntVector Vector, FFixed Angle) {
     return FIntVector{};
 }

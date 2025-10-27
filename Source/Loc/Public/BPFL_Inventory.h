@@ -16,7 +16,7 @@ public:
     UBPFL_Inventory();
 
     UFUNCTION(BlueprintCallable)
-    static bool TryConsumeItemsInMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& ItemsToConsume);
+    static bool TryConsumeItemsInMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& ItemsToConsume, bool bIgnoreData);
     
     UFUNCTION(BlueprintCallable)
     static bool TryConsumeItemsForConstruction(ASimulationPlayer* Player, const TArray<FItemStack>& ItemsToConsume);
@@ -28,7 +28,10 @@ public:
     static bool LocalPlayerCanAffordConstruction(const UObject* WorldContext, const TArray<FItemStack>& ConstructionCost);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static int32 HowManyTimesCanTheRequestedItemsBeConsumedDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems);
+    static int32 HowManyTimesCanTheRequestedItemsBeConsumedDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems, bool bIgnoreData);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static int32 GetAmountOfItemsForMultipleInventories_ConfigAndData(const TArray<UInventoryComponent*>& Inventories, FItemStack ConfigAndData);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetAmountOfItemsForMultipleInventories(const TArray<UInventoryComponent*>& Inventories, UItemConfig* Item);
@@ -37,13 +40,13 @@ public:
     static TArray<UInventoryComponent*> GetAllUsableInventoriesIncludingSpecificPlayer(ASimulationPlayer* Player);
     
     UFUNCTION(BlueprintCallable)
-    static TArray<FItemStack> GetAllItemsOfMultipleInventories(const TArray<UInventoryComponent*>& Inventories);
+    static TArray<FItemStack> GetAllItemsOfMultipleInventories(const TArray<UInventoryComponent*>& Inventories, bool bIgnoreData);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContext"))
     static TArray<UInventoryComponent*> GetAllInventoriesUsableToLocalPlayerForConstruction(const UObject* WorldContext);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static bool CanConsumeItemsDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems);
+    static bool CanConsumeItemsDistributedOverMultipleInventories(const TArray<UInventoryComponent*>& Inventories, const TArray<FItemStack>& RequestedItems, bool bIgnoreData);
     
 };
 

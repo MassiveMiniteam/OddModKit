@@ -9,7 +9,6 @@
 
 class AGridObject;
 class UInventoryComponent;
-class UItemConfig;
 class UStatsComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -52,12 +51,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FFixed GetPickupDelay() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<UItemConfig*> GetItemPickUpWhiteList() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    UItemConfig* GetCarryItemConfig() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FItemStack GetCarriedItemStack() const;

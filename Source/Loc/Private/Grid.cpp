@@ -27,7 +27,10 @@ void AGrid::SetGridTileSnowHeight(FIntPoint GridPosition, uint8 SnowHeight) {
 void AGrid::SetGridTileLandscapeLayer(FIntPoint GridPosition, UGridTileLandscapeLayer* Layer) {
 }
 
-void AGrid::SetGridTileGroundLayer(FIntPoint GridPosition, UGridTileGroundLayer* Layer) {
+void AGrid::SetGridTileGroundLayer(FIntPoint GridPosition, UGridTileGroundLayer* Layer, bool bNotifyUpdate) {
+}
+
+void AGrid::RequestUpdateForTiles(TArray<FIntPoint>& PointsToUpdate) {
 }
 
 void AGrid::RemoveSimulationActorToCell(FIntPoint position, ASimulationActor* SimulationActor) {

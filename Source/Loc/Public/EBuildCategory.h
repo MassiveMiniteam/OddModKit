@@ -23,6 +23,7 @@ enum class EBuildCategory : uint8 {
     AncientDecorations,
     HotDecorations,
     ColdDecorations,
+    ThemeParkDecoration,
     DebugAndPrototype,
     Shrines,
     TeleporterShrines,

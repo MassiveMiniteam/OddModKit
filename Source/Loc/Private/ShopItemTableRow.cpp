@@ -3,5 +3,6 @@
 FShopItemTableRow::FShopItemTableRow() {
     this->ShopItem = NULL;
     this->RelatedDataTable = NULL;
+    this->ProductEntitlementDataAsset = NULL;
 }
 

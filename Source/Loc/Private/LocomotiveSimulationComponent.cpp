@@ -5,8 +5,8 @@ ULocomotiveSimulationComponent::ULocomotiveSimulationComponent(const FObjectInit
     this->StatsComponent = NULL;
     this->WorkerInventory = NULL;
     this->PlayerInputComponent = NULL;
-    this->FuelDecayComponent = NULL;
     this->TrainAgentComponent = NULL;
+    this->Strategy = NULL;
 }
 
 bool ULocomotiveSimulationComponent::WantsToDriveForward() const {
@@ -17,21 +17,11 @@ bool ULocomotiveSimulationComponent::WantsToDriveBackward() const {
     return false;
 }
 
-void ULocomotiveSimulationComponent::OnMovementStopped(UTrainTracksAgentSimulationComponent* Agent) {
-}
-
-void ULocomotiveSimulationComponent::OnMovementStarted(UTrainTracksAgentSimulationComponent* Agent) {
-}
-
 bool ULocomotiveSimulationComponent::HasPlayerInput() const {
     return false;
 }
 
 bool ULocomotiveSimulationComponent::HasMovementBlockedStat() const {
-    return false;
-}
-
-bool ULocomotiveSimulationComponent::HasFuel() const {
     return false;
 }
 
